@@ -222,6 +222,7 @@ input:focus{outline:none;border-color:var(--deep);box-shadow:0 0 0 4px #ffd6e0}
       <ol class="steps">
         <li><b>Pay ₹49</b> by UPI (GPay, PhonePe, Paytm, CRED)
           <a class="btn dark sm" id="upiBtn">Pay ₹49 by UPI</a>
+          <div id="upiApps" class="hide" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px"><p class="note" style="grid-column:1/-1;margin:0">Pay ₹49 with your UPI app:</p><a class="chip t" id="upiG" style="justify-content:center">GPay</a><a class="chip t" id="upiP" style="justify-content:center">PhonePe</a><a class="chip t" id="upiT" style="justify-content:center">Paytm</a></div>
           <div id="upiDesk" class="hide"><p class="note">💻 On a laptop? Scan this with any UPI app on your phone:</p><img class="upiqr" id="upiQr" alt="UPI QR code to pay ₹49 to TeekaTime"></div>
           <div class="upi"><code id="upiId"></code><button class="chip t" id="copyUpi" type="button">Copy</button></div>
           <p class="note" style="margin-top:6px">If the button doesn't open your app, copy the UPI ID and pay ₹49 from your UPI app.</p>
@@ -242,7 +243,7 @@ input:focus{outline:none;border-color:var(--deep);box-shadow:0 0 0 4px #ffd6e0}
     </div>
   </section>
 
-  <div class="trust"><span style="font-size:20px">📋</span><div>Based on India's National Immunization Schedule (MoHFW) and the <a href="https://www.indianpediatrics.net/feb2024/113.pdf" target="_blank" rel="noopener">IAP-ACVIP schedule</a> · Last checked Nov 2026 · Name and birth date stay on this phone; we only count anonymous visits.<br><b>A reminder tool, not medical advice. Your doctor may adjust dates – their advice comes first.</b> Dose counts can vary with the vaccine brand.<br>Made with 💗 in Indore · Not affiliated with IAP or the Government of India · Help &amp; refunds: <a id="helpLink2" target="_blank" rel="noopener">WhatsApp +91 89625 09179</a></div></div>
+  <div class="trust"><span style="font-size:20px">📋</span><div>Based on India's National Immunization Schedule (MoHFW) and the <a href="https://www.indianpediatrics.net/feb2024/113.pdf" target="_blank" rel="noopener">IAP-ACVIP schedule</a> · Last checked Nov 2026 · Name and birth date stay on this phone; we only count anonymous visits.<br><b>A reminder tool, not medical advice. Your doctor may adjust dates – their advice comes first.</b> Dose counts can vary with the vaccine brand.<br>Made with 💗 in Indore · Not affiliated with IAP or the Government of India · <a id="helpLink2" target="_blank" rel="noopener">Help &amp; refunds on WhatsApp</a></div></div>
 </div>
 <div class="toast" id="toast"></div>
 
@@ -405,7 +406,7 @@ function shareUrl(){
   const p = new URLSearchParams({dob:S.dob, plan:S.plan});
   if(S.name) p.set("n", S.name);
   if(S.plan === "both") p.set("a", ADDONS.filter(a => S.addons[a.k]).map(a => a.k).join("."));
-  return location.origin + location.pathname + "?" + p.toString();
+  return "https://" + location.host + location.pathname + "?" + p.toString();
 }
 function shareText(){
   const list = schedule().filter(v => v.status !== "done" && v.status !== "overdue").slice(0, 6);
@@ -628,6 +629,7 @@ function loadCount(){
   $("upiId").textContent = UPI_ID;
   const upiLink = "upi://pay?pa=" + UPI_ID + "&pn=" + encodeURIComponent("TeekaTime") + "&am=" + PRICE + ".00&cu=INR&tn=" + encodeURIComponent("TeekaTime reminders");
   $("upiBtn").href = upiLink;
+  if(isIOS){ const q = upiLink.split("?")[1]; $("upiBtn").classList.add("hide"); $("upiApps").classList.remove("hide"); $("upiG").href = "gpay://upi/pay?" + q; $("upiP").href = "phonepe://pay?" + q; $("upiT").href = "paytmmp://pay?" + q; ["upiG","upiP","upiT"].forEach(id => $(id).onclick = () => log("upi_click")); }
   const isMobile = isIOS || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
   if(!isMobile){ $("upiBtn").classList.add("hide"); $("upiDesk").classList.remove("hide"); $("upiQr").src = "https://api.qrserver.com/v1/create-qr-code/?size=360x360&margin=0&data=" + encodeURIComponent(upiLink); }
   const help = "https://wa.me/" + OWNER_WA + "?text=" + encodeURIComponent("Hi, I need help with TeekaTime (refund / question): ");
