@@ -8,7 +8,10 @@
 <meta property="og:title" content="TeekaTime – Never miss your baby's teeka">
 <meta property="og:description" content="Every vaccine date for your baby (govt + private), with phone reminders. Free, no app, no login.">
 <meta name="theme-color" content="#A83A59">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23A83A59'/%3E%3Ctext x='32' y='44' font-size='32' text-anchor='middle'%3E%F0%9F%92%89%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA0NCA0NCc+PHJlY3Qgd2lkdGg9JzQ0JyBoZWlnaHQ9JzQ0JyByeD0nMTMnIGZpbGw9JyMzYTE3MjYnLz48cmVjdCB4PScxMCcgeT0nMTInIHdpZHRoPScyNCcgaGVpZ2h0PScyMicgcng9JzUnIGZpbGw9J25vbmUnIHN0cm9rZT0nI0ZGRjdGNScgc3Ryb2tlLXdpZHRoPScyLjYnLz48cGF0aCBkPSdNMTYgOXY2TTI4IDl2Nicgc3Ryb2tlPScjRkZGN0Y1JyBzdHJva2Utd2lkdGg9JzIuNicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJy8+PHBhdGggZD0nTTIyIDI5LjVzLTQuNC0yLjctNC40LTUuNmMwLTEuNCAxLjEtMi40IDIuNC0yLjQuOSAwIDEuNi41IDIgMS4xLjQtLjYgMS4xLTEuMSAyLTEuMSAxLjMgMCAyLjQgMSAyLjQgMi40IDAgMi45LTQuNCA1LjYtNC40IDUuNnonIGZpbGw9JyNGRjZGOEUnLz48L3N2Zz4=">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA0NCA0NCc+PHJlY3Qgd2lkdGg9JzQ0JyBoZWlnaHQ9JzQ0JyByeD0nMTMnIGZpbGw9JyMzYTE3MjYnLz48cmVjdCB4PScxMCcgeT0nMTInIHdpZHRoPScyNCcgaGVpZ2h0PScyMicgcng9JzUnIGZpbGw9J25vbmUnIHN0cm9rZT0nI0ZGRjdGNScgc3Ryb2tlLXdpZHRoPScyLjYnLz48cGF0aCBkPSdNMTYgOXY2TTI4IDl2Nicgc3Ryb2tlPScjRkZGN0Y1JyBzdHJva2Utd2lkdGg9JzIuNicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJy8+PHBhdGggZD0nTTIyIDI5LjVzLTQuNC0yLjctNC40LTUuNmMwLTEuNCAxLjEtMi40IDIuNC0yLjQuOSAwIDEuNi41IDIgMS4xLjQtLjYgMS4xLTEuMSAyLTEuMSAxLjMgMCAyLjQgMSAyLjQgMi40IDAgMi45LTQuNCA1LjYtNC40IDUuNnonIGZpbGw9JyNGRjZGOEUnLz48L3N2Zz4=">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap" rel="stylesheet">
 <style>
 :root{--blush:#FFF5F7;--rose:#FF5A7D;--deep:#A83A59;--teal:#0E7270;--tealbg:#E3F4F2;--peach:#FFE3D6;--peachtx:#9A3B12;--lav:#EEF0FF;--lavtx:#3F49B8;--ink:#23202B;--mute:#5B6275;--line:#F1E4E8;--card:#fff}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -16,16 +19,18 @@ html{-webkit-text-size-adjust:100%}
 body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;background:var(--blush);color:var(--ink);font-size:16px;line-height:1.45}
 .wrap{max-width:480px;margin:0 auto;padding:14px 16px 40px}
 header{display:flex;align-items:center;gap:10px;margin:2px 0 16px}
-.logo{width:44px;height:44px;border-radius:14px;display:block;box-shadow:0 6px 16px rgba(168,58,89,.28);flex:none}
+.logo{width:44px;height:44px;border-radius:13px;display:block;box-shadow:0 6px 16px rgba(58,23,38,.25);flex:none}
 .floaty{position:absolute;right:12px;top:10px;display:flex;gap:6px;font-size:22px;opacity:.9}
 .floaty span{display:inline-block}
 @media (prefers-reduced-motion:no-preference){.floaty span{animation:bob 3s ease-in-out infinite}.floaty span:nth-child(2){animation-delay:.6s}.floaty span:nth-child(3){animation-delay:1.2s}@keyframes bob{50%{transform:translateY(-6px)}}.ok-big{animation:boing .8s ease}@keyframes boing{0%{transform:scale(.4)}60%{transform:scale(1.15)}100%{transform:scale(1)}}}
 @media (min-width:700px){body{background:radial-gradient(circle at 12% 18%,#FFE1E8 0,transparent 32%),radial-gradient(circle at 88% 72%,#EEF0FF 0,transparent 38%),var(--blush);background-attachment:fixed}.wrap{padding-top:36px}h1{font-size:34px}}
 .upiqr{display:block;margin:10px auto 4px;border-radius:16px;background:#fff;padding:8px;width:180px;height:180px}
-.brand{font-weight:800;font-size:22px;letter-spacing:-.6px;color:var(--ink)}
-.brand i{font-style:normal;color:var(--deep)}
+.brand{font-family:"Nunito",system-ui,sans-serif;font-weight:900;font-size:24px;letter-spacing:-.5px;color:#3a1726;line-height:1.1}
+.brand i{font-style:normal;color:#C23E66}
+h1,h2,.nwhat,.price,.vage,.btn{font-family:"Nunito",system-ui,sans-serif}
+h1,h2,.nwhat,.price{font-weight:900}
 .social{display:inline-flex;gap:6px;align-items:center;margin-top:12px;background:#fff;border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600;color:var(--deep);box-shadow:0 2px 10px rgba(168,58,89,.10)}
-.brand small{display:block;font-weight:500;font-size:12px;color:var(--mute);letter-spacing:0}
+.brand small{display:block;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-weight:500;font-size:12px;color:var(--mute);letter-spacing:0;margin-top:2px}
 h1{font-size:30px;line-height:1.12;letter-spacing:-.6px;margin-bottom:8px}
 h1 em{font-style:normal;color:var(--deep)}
 h2{font-size:21px;margin-bottom:4px;letter-spacing:-.3px}
@@ -149,7 +154,7 @@ input:focus{outline:none;border-color:var(--deep);box-shadow:0 0 0 4px #ffd6e0}
 <body>
 <div class="wrap">
   <header>
-    <svg class="logo" viewBox="0 0 44 44" role="img" aria-label="TeekaTime logo"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF7C98"/><stop offset=".55" stop-color="#D44A72"/><stop offset="1" stop-color="#8E2C4E"/></linearGradient></defs><rect width="44" height="44" rx="14" fill="url(#lg)"/><ellipse cx="16" cy="7" rx="16" ry="7" fill="#fff" opacity=".14"/><path d="M22 8.5C22 8.5 13 19 13 25.4a9 9 0 0 0 18 0C31 19 22 8.5 22 8.5z" fill="#fff"/><path d="M22 30.2s-4.4-2.7-4.4-5.7c0-1.5 1.1-2.5 2.4-2.5.9 0 1.6.5 2 1.1.4-.6 1.1-1.1 2-1.1 1.3 0 2.4 1 2.4 2.5 0 3-4.4 5.7-4.4 5.7z" fill="url(#lg)"/><path d="M34 8.2l.9 2.3 2.3.9-2.3.9-.9 2.3-.9-2.3-2.3-.9 2.3-.9z" fill="#fff" opacity=".95"/></svg>
+    <svg class="logo" viewBox="0 0 44 44" role="img" aria-label="TeekaTime logo"><rect width="44" height="44" rx="13" fill="#3a1726"/><rect x="10" y="12" width="24" height="22" rx="5" fill="none" stroke="#FFF7F5" stroke-width="2.6"/><path d="M16 9v6M28 9v6" stroke="#FFF7F5" stroke-width="2.6" stroke-linecap="round"/><path d="M22 29.5s-4.4-2.7-4.4-5.6c0-1.4 1.1-2.4 2.4-2.4.9 0 1.6.5 2 1.1.4-.6 1.1-1.1 2-1.1 1.3 0 2.4 1 2.4 2.4 0 2.9-4.4 5.6-4.4 5.6z" fill="#FF6F8E"/></svg>
     <div class="brand">Teeka<i>Time</i><small>Your baby's vaccine buddy</small></div>
   </header>
 
