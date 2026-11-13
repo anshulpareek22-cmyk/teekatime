@@ -215,8 +215,9 @@ input:focus{outline:none;border-color:var(--deep);box-shadow:0 0 0 4px #ffd6e0}
     <div class="card pay">
       <div class="price">₹49 <small>for 1 full year</small></div>
       <ul>
-        <li>WhatsApp reminder <b>3 days before</b> and on the <b>morning</b> of every teeka</li>
-        <li>Vaccine names, so you know what to ask the doctor</li>
+        <li>A real person reminds you on WhatsApp <b>7 days before, 1 day before</b> and on the <b>morning</b> of every teeka</li>
+        <li>Keeps nudging every 2 days until you reply <b>DONE ✅</b> – so no dose quietly slips</li>
+        <li>Vaccine names and what to ask the doctor, so the visit is quick</li>
         <li>Full refund on request – no questions asked</li>
       </ul>
       <ol class="steps">
@@ -235,6 +236,7 @@ input:focus{outline:none;border-color:var(--deep);box-shadow:0 0 0 4px #ffd6e0}
       <p class="note"><b>Refund or help?</b> <a class="link" id="helpLink" target="_blank" rel="noopener">WhatsApp us</a> – refunds go back to your UPI within 3 working days.</p>
     </div>
     <a class="btn wa" id="share2" target="_blank" rel="noopener">Share plan on WhatsApp</a>
+    <div class="card" style="margin-top:12px;text-align:center"><b>💌 Know another new parent?</b><p class="note" style="margin-top:4px">Help them never miss a teeka. It's free.</p><a class="btn out sm" id="refer" target="_blank" rel="noopener">Send TeekaTime to a friend</a></div>
     <h3>Or add the other visits yourself</h3>
     <div class="card">
       <button class="btn out sm hide" id="icsAll" type="button">📅 Add all visits at once (iPhone)</button>
@@ -635,6 +637,8 @@ function loadCount(){
   const help = "https://wa.me/" + OWNER_WA + "?text=" + encodeURIComponent("Hi, I need help with TeekaTime (refund / question): ");
   $("helpLink").href = help; $("helpLink2").href = help;
   loadCount();
+  $("refer").href = "https://wa.me/?text=" + encodeURIComponent("I'm using TeekaTime to keep track of my baby's vaccines – every govt + private teeka date with reminders. Free, no app: https://" + location.host);
+  $("refer").onclick = () => log("referral");
   $("upiBtn").onclick = () => log("upi_click");
   $("copyUpi").onclick = () => { (navigator.clipboard ? navigator.clipboard.writeText(UPI_ID) : Promise.reject()).then(() => toast("UPI ID copied"), () => toast("UPI ID: " + UPI_ID)); };
   $("confirmBtn").onclick = () => log("paid_confirm");
