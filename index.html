@@ -193,8 +193,8 @@ footer a{color:var(--mute)}
 
 <script>
 /* ---------- CONFIG ---------- */
-const SUPABASE_URL = "";   // filled after setup
-const SUPABASE_KEY = "";   // anon public key (insert-only table)
+const SUPABASE_URL = "https://dqnhcpzrrxbmnplbffxj.supabase.co";
+const SUPABASE_KEY = "sb_publishable_6tB7paPNaaUD2IhVeR-oWQ_3spZpJUL";   // publishable key, insert-only table
 const UPI_ID = "9975623500@yescred";
 const OWNER_WA = "918962509179";
 const PRICE = 49;
@@ -383,7 +383,7 @@ function log(action){
     const weeks = S.dob ? Math.max(0, Math.floor(diffDays(today(), parseDate(S.dob)) / 7)) : null;
     fetch(SUPABASE_URL + "/rest/v1/completions", {
       method:"POST", keepalive:true,
-      headers:{"apikey":SUPABASE_KEY,"Authorization":"Bearer " + SUPABASE_KEY,"Content-Type":"application/json","Prefer":"return=minimal"},
+      headers:{"apikey":SUPABASE_KEY,"Content-Type":"application/json","Prefer":"return=minimal"},
       body: JSON.stringify({device_id: deviceId(), plan: S.plan, baby_age_weeks: weeks, action: (IS_TEST ? "test_" : "") + action})
     }).catch(()=>{});
   }catch(e){}
@@ -399,7 +399,7 @@ function vacListHtml(v){
     '<li><span class="vname">' + x.name + '</span>' + tagHtml(x.tag) +
     '<span class="vwhy">' + (WHY[x.base] || "") + (x.extra ? " · " + x.extra : "") + '</span></li>').join("") + '</ul>';
 }
-function dateHtml(v){ return v.to ? fmtShort(v.from) + " – " + fmtShort(v.to) : fmt(v.from); }
+function dateHtml(v){ return v.to ? fmt(v.from) + " – " + fmt(v.to) : fmt(v.from); }
 
 function renderS2(){
   const sch = schedule();
@@ -432,7 +432,7 @@ function renderS2(){
   }
   // lists
   const groups = [
-    ["overdue", "Past due date", "r"], ["soon", "Due in the next 7 days", "a"], ["up", "Upcoming", ""], ["done", "Given", ""]
+    ["overdue", "Past due date", "r"], ["soon", "Due now or this week", "a"], ["up", "Upcoming", ""], ["done", "Given", ""]
   ];
   let html = "";
   groups.forEach(([st, title]) => {
