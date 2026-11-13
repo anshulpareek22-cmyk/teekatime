@@ -1,1 +1,526 @@
-<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>TeekaTime</title></head><body style="font-family:sans-serif;text-align:center;padding:40px"><h1>TeekaTime</h1><p>Coming soon</p></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>TeekaTime – Never miss your baby's teeka</title>
+<meta name="description" content="Enter your baby's birth date. Get every vaccine date – government and private – with reminders on your phone. No app, no login.">
+<meta property="og:title" content="TeekaTime – Never miss your baby's teeka">
+<meta property="og:description" content="Every vaccine date for your baby (govt + private), with phone reminders. Free, no app, no login.">
+<meta name="theme-color" content="#0f766e">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f766e'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3ET%3C/text%3E%3C/svg%3E">
+<style>
+:root{--teal:#0f766e;--teal2:#14b8a6;--tealbg:#ecfdf5;--ink:#1f2937;--mute:#6b7280;--line:#e5e7eb;--red:#b91c1c;--redbg:#fef2f2;--amb:#b45309;--ambbg:#fffbeb;--blue:#1d4ed8;--bluebg:#eff6ff;--card:#fff;--bg:#f7f7f4}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans",Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.45}
+.wrap{max-width:480px;margin:0 auto;padding:16px 16px 40px}
+header{display:flex;align-items:center;gap:10px;margin:4px 0 18px}
+.logo{width:36px;height:36px;border-radius:10px;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:800;font-size:20px}
+.brand{font-weight:800;font-size:20px;letter-spacing:-.2px}
+.brand small{display:block;font-weight:500;font-size:12px;color:var(--mute);letter-spacing:0}
+h1{font-size:28px;line-height:1.15;letter-spacing:-.5px;margin-bottom:8px}
+h2{font-size:20px;margin-bottom:6px}
+h3{font-size:15px;text-transform:uppercase;letter-spacing:.6px;color:var(--mute);margin:22px 0 8px}
+.lead{color:#374151;margin-bottom:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px}
+label.f{display:block;font-weight:600;margin:14px 0 6px}
+label.f span{font-weight:400;color:var(--mute)}
+input[type=text],input[type=date]{width:100%;font-size:17px;padding:14px;border:1.5px solid #d1d5db;border-radius:12px;background:#fff;color:var(--ink);min-height:52px;-webkit-appearance:none;appearance:none}
+input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px #99f6e4}
+.choices{display:grid;gap:10px}
+.choice{display:flex;gap:12px;align-items:flex-start;border:1.5px solid #d1d5db;border-radius:14px;padding:14px;background:#fff;cursor:pointer;text-align:left;width:100%;font:inherit;color:inherit}
+.choice .dot{width:22px;height:22px;border-radius:50%;border:2px solid #9ca3af;flex:none;margin-top:1px}
+.choice.on{border-color:var(--teal);background:var(--tealbg)}
+.choice.on .dot{border:7px solid var(--teal)}
+.choice b{display:block}
+.choice small{color:var(--mute);font-size:14px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:54px;border:0;border-radius:14px;background:var(--teal);color:#fff;font-size:17px;font-weight:700;cursor:pointer;text-decoration:none;padding:12px 16px;margin-top:12px;font-family:inherit}
+.btn:active{transform:scale(.99)}
+.btn.sec{background:#fff;color:var(--teal);border:1.5px solid var(--teal)}
+.btn.wa{background:#16a34a}
+.btn.dark{background:#111827}
+.btn.sm{min-height:44px;font-size:15px;border-radius:12px;margin-top:8px}
+.note{font-size:14px;color:var(--mute);margin-top:10px}
+.err{color:var(--red);font-size:14px;margin-top:8px;display:none}
+.next{background:linear-gradient(135deg,#0f766e,#115e59);color:#fff;border:0}
+.next .when{font-size:14px;opacity:.9}
+.next .what{font-size:22px;font-weight:800;margin:4px 0 6px;line-height:1.2}
+.next ul{list-style:none;margin:8px 0 4px}
+.next li{font-size:15px;padding:3px 0;opacity:.95}
+.next .btn{background:#fff;color:var(--teal)}
+.visit{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px}
+.visit.overdue{border-color:#fecaca;background:var(--redbg)}
+.visit.soon{border-color:#fde68a;background:var(--ambbg)}
+.visit.done{opacity:.6}
+.vhead{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.vage{font-weight:800;font-size:17px}
+.vdate{font-size:14px;color:var(--mute);text-align:right}
+.vlist{list-style:none;margin:8px 0 6px}
+.vlist li{padding:6px 0;border-top:1px dashed #e5e7eb;font-size:15px}
+.vlist li:first-child{border-top:0}
+.vname{font-weight:600}
+.vwhy{color:var(--mute);font-size:13px;display:block}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:999px;margin-left:4px;vertical-align:1px;white-space:nowrap}
+.tg{background:#dcfce7;color:#166534}
+.tp{background:var(--bluebg);color:var(--blue)}
+.to{background:#f3f4f6;color:#4b5563}
+.vact{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;text-decoration:none;font-family:inherit;min-height:40px;display:inline-flex;align-items:center}
+.chip.t{border-color:var(--teal);color:var(--teal)}
+.chip.ok{background:var(--teal);border-color:var(--teal);color:#fff}
+.flag{font-size:13px;font-weight:700}
+.flag.r{color:var(--red)}.flag.a{color:var(--amb)}
+.addons{display:grid;gap:8px;margin-top:8px}
+.tog{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.tog small{display:block;color:var(--mute);font-size:13px}
+.sw{position:relative;width:48px;height:28px;flex:none}
+.sw input{opacity:0;width:0;height:0}
+.sw span{position:absolute;inset:0;background:#d1d5db;border-radius:999px;transition:.2s}
+.sw span:before{content:"";position:absolute;width:22px;height:22px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
+.sw input:checked+span{background:var(--teal)}
+.sw input:checked+span:before{transform:translateX(20px)}
+.ok-big{font-size:46px;line-height:1}
+.pay{border:2px solid #fbbf24;background:#fffbeb}
+.price{font-size:30px;font-weight:800}
+.price small{font-size:15px;font-weight:600;color:var(--mute)}
+.pay ul{margin:8px 0 4px 18px}
+.pay li{margin:3px 0}
+.upi{display:flex;gap:8px;align-items:center;margin-top:10px;background:#fff;border:1px dashed #d1d5db;border-radius:10px;padding:8px 10px;font-size:14px}
+.upi code{flex:1;font-size:15px;font-weight:700;word-break:break-all}
+.steps{counter-reset:s;list-style:none;margin-top:6px}
+.steps li{counter-increment:s;position:relative;padding-left:30px;margin:10px 0}
+.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:#111827;color:#fff;font-size:13px;font-weight:700;display:grid;place-items:center}
+.link{color:var(--teal);font-weight:600;background:none;border:0;font:inherit;cursor:pointer;text-decoration:underline;padding:0}
+footer{margin-top:26px;font-size:12.5px;color:var(--mute);line-height:1.5}
+footer a{color:var(--mute)}
+.hide{display:none!important}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#111827;color:#fff;padding:12px 16px;border-radius:12px;font-size:14px;z-index:9;max-width:90%;text-align:center;opacity:0;transition:.25s;pointer-events:none}
+.toast.show{opacity:1}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.pill{font-size:13px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:var(--mute)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">T</div>
+    <div class="brand">TeekaTime<small>Baby vaccine dates &amp; reminders</small></div>
+  </header>
+
+  <!-- SCREEN 1 -->
+  <section id="s1">
+    <h1>Never miss your baby's teeka.</h1>
+    <p class="lead">Enter your baby's birth date. See every vaccine date – government and private – and get a reminder on your phone. <b>Free. No app, no login.</b></p>
+    <div class="card">
+      <label class="f" for="name">Baby's name <span>(optional)</span></label>
+      <input id="name" type="text" placeholder="e.g. Pihu" maxlength="30" autocomplete="off">
+      <label class="f" for="dob">Date of birth</label>
+      <input id="dob" type="date">
+      <div class="err" id="dobErr">Please choose a birth date within the last 3 years.</div>
+      <label class="f">Where do you get vaccines done?</label>
+      <div class="choices" id="plans">
+        <button class="choice" data-plan="govt" type="button"><span class="dot"></span><span><b>Government centre</b><small>Free vaccines – National Immunization Schedule</small></span></button>
+        <button class="choice" data-plan="private" type="button"><span class="dot"></span><span><b>Private doctor</b><small>IAP schedule followed by paediatricians</small></span></button>
+        <button class="choice on" data-plan="both" type="button"><span class="dot"></span><span><b>Both</b><small>Free govt vaccines + a few private ones (flu, typhoid…)</small></span></button>
+      </div>
+      <button class="btn" id="go" type="button">Show my vaccine dates →</button>
+      <p class="note">🔒 Your baby's details stay on your phone.</p>
+    </div>
+  </section>
+
+  <!-- SCREEN 2 -->
+  <section id="s2" class="hide">
+    <div class="top"><button class="link" id="back" type="button">← Change details</button><span class="pill" id="planPill"></span></div>
+    <h2 id="ageLine"></h2>
+    <div class="card next" id="nextCard"></div>
+    <div id="addonBox" class="hide">
+      <h3>Private vaccines you want</h3>
+      <p class="note" style="margin-top:0">Not in the free government list. Switch off any you don't plan to take.</p>
+      <div class="addons" id="addons"></div>
+    </div>
+    <div id="lists"></div>
+    <div class="card" style="margin-top:16px">
+      <b>Share with family</b>
+      <p class="note" style="margin-top:4px">Send the full plan to your partner or grandparents on WhatsApp.</p>
+      <a class="btn wa sm" id="share1" target="_blank" rel="noopener">Share plan on WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- SCREEN 3 -->
+  <section id="s3" class="hide">
+    <div class="top"><button class="link" id="back2" type="button">← Back to schedule</button></div>
+    <div class="card" style="text-align:center">
+      <div class="ok-big">✅</div>
+      <h2 style="margin-top:8px">Reminder added</h2>
+      <p class="note" id="s3line">Your phone will remind you before the next teeka.</p>
+    </div>
+    <h3>Add the other visits</h3>
+    <div class="card">
+      <button class="btn sec sm" id="icsAll" type="button">📅 Add all visits at once (iPhone)</button>
+      <p class="note">Android: tap "Add" on each visit below.</p>
+      <div id="restList"></div>
+    </div>
+    <a class="btn wa" id="share2" target="_blank" rel="noopener">Share plan on WhatsApp</a>
+
+    <h3>Want a real person to remind you?</h3>
+    <div class="card pay">
+      <div class="price">₹49 <small>for 1 year</small></div>
+      <ul>
+        <li>WhatsApp reminder <b>3 days before</b> and on the <b>morning</b> of every vaccine</li>
+        <li>Vaccine names, so you know what to ask the doctor</li>
+        <li>Full refund on request – no questions</li>
+      </ul>
+      <ol class="steps">
+        <li><b>Pay ₹49</b> by UPI (GPay, PhonePe, Paytm, CRED)
+          <a class="btn dark sm" id="upiBtn">Pay ₹49 by UPI</a>
+          <div class="upi"><code id="upiId"></code><button class="chip t" id="copyUpi" type="button">Copy</button></div>
+          <p class="note" style="margin-top:6px">If the button doesn't open your app, copy the UPI ID and pay ₹49 from your UPI app.</p>
+        </li>
+        <li><b>Send confirmation</b> on WhatsApp – your details are filled in
+          <a class="btn wa sm" id="confirmBtn" target="_blank" rel="noopener">I've paid – send confirmation</a>
+        </li>
+      </ol>
+      <p class="note">You'll get a welcome message within a few hours.</p>
+    </div>
+  </section>
+
+  <footer>
+    Based on India's National Immunization Schedule (MoHFW) and the <a href="https://www.indianpediatrics.net/feb2024/113.pdf" target="_blank" rel="noopener">IAP 2023 schedule</a>. This is a reminder tool, not medical advice. <b>Always confirm with your paediatrician.</b> Dose counts can vary with the vaccine brand your doctor uses.
+  </footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------- CONFIG ---------- */
+const SUPABASE_URL = "";   // filled after setup
+const SUPABASE_KEY = "";   // anon public key (insert-only table)
+const UPI_ID = "9975623500@yescred";
+const OWNER_WA = "918962509179";
+const PRICE = 49;
+
+/* ---------- VACCINE DATA ---------- */
+// offsets: d = days, m = months after birth. to = end of window.
+const WHY = {
+  "BCG":"Tuberculosis","bOPV":"Polio (oral drops)","OPV":"Polio (oral drops)","Hep B":"Hepatitis B (liver)",
+  "Pentavalent":"Diphtheria, tetanus, whooping cough, Hep B, Hib","fIPV":"Polio (injection)","IPV":"Polio (injection)",
+  "Rota":"Diarrhoea from rotavirus","PCV":"Pneumonia & meningitis","MR":"Measles & rubella","MMR":"Measles, mumps & rubella",
+  "JE":"Japanese encephalitis","Vitamin A":"Supplement for eyes & immunity (not a vaccine)","DTwP/DTaP":"Diphtheria, tetanus, whooping cough",
+  "Hib":"Hib meningitis & pneumonia","Flu":"Influenza (flu)","Typhoid":"Typhoid fever","Hep A":"Hepatitis A (liver)",
+  "Chickenpox":"Chickenpox (varicella)","DPT":"Diphtheria, tetanus, whooping cough"
+};
+const V = (name, base, extra) => ({name, base, extra: extra || ""});
+const VISITS = [
+ {k:"birth", label:"At birth", at:{d:0},
+  govt:[V("BCG","BCG"),V("bOPV-0","bOPV"),V("Hep B (birth dose)","Hep B")],
+  iap:[V("BCG","BCG"),V("OPV-0","OPV"),V("Hep B-1","Hep B")]},
+ {k:"w6", label:"6 weeks", at:{d:42},
+  govt:[V("Pentavalent-1","Pentavalent"),V("bOPV-1","bOPV"),V("fIPV-1","fIPV"),V("Rota-1","Rota"),V("PCV-1","PCV")],
+  iap:[V("DTwP/DTaP-1","DTwP/DTaP"),V("IPV-1","IPV"),V("Hib-1","Hib"),V("Hep B-2","Hep B"),V("Rota-1","Rota"),V("PCV-1","PCV")]},
+ {k:"w10", label:"10 weeks", at:{d:70},
+  govt:[V("Pentavalent-2","Pentavalent"),V("bOPV-2","bOPV"),V("Rota-2","Rota")],
+  iap:[V("DTwP/DTaP-2","DTwP/DTaP"),V("IPV-2","IPV"),V("Hib-2","Hib"),V("Hep B-3","Hep B"),V("Rota-2","Rota"),V("PCV-2","PCV")]},
+ {k:"w14", label:"14 weeks", at:{d:98},
+  govt:[V("Pentavalent-3","Pentavalent"),V("bOPV-3","bOPV"),V("fIPV-2","fIPV"),V("Rota-3","Rota"),V("PCV-2","PCV")],
+  iap:[V("DTwP/DTaP-3","DTwP/DTaP"),V("IPV-3","IPV"),V("Hib-3","Hib"),V("Hep B-4","Hep B"),V("Rota-3","Rota","Not needed with some brands"),V("PCV-3","PCV")]},
+ {k:"m6", label:"6 months", at:{m:6},
+  iap:[V("Flu-1","Flu")], addon:{flu:[V("Flu-1","Flu")]}},
+ {k:"m6t", label:"6–9 months", at:{m:6}, to:{m:9},
+  iap:[V("Typhoid conjugate","Typhoid","Single dose")], addon:{typhoid:[V("Typhoid conjugate","Typhoid","Single dose")]}},
+ {k:"m7", label:"7 months", at:{m:7},
+  iap:[V("Flu-2","Flu","4 weeks after Flu-1")], addon:{flu:[V("Flu-2","Flu","4 weeks after Flu-1")]}},
+ {k:"m9", label:"9 months", at:{m:9}, to:{m:12},
+  govt:[V("MR-1","MR","Ask your doctor about MMR (adds mumps)"),V("fIPV-3","fIPV"),V("PCV booster","PCV"),V("Vitamin A-1","Vitamin A"),V("JE-1","JE","Only in JE districts")],
+  iap:[V("MMR-1","MMR")]},
+ {k:"m12", label:"12 months", at:{m:12},
+  iap:[V("Hep A-1","Hep A")], addon:{hepa:[V("Hep A-1","Hep A")]}},
+ {k:"m15", label:"15 months", at:{m:15},
+  iap:[V("MMR-2","MMR"),V("Chickenpox-1","Chickenpox"),V("PCV booster","PCV")], addon:{varicella:[V("Chickenpox-1","Chickenpox")]}},
+ {k:"m16", label:"16–18 months", at:{m:16}, to:{m:18},
+  iap:[V("DTwP/DTaP booster-1","DTwP/DTaP"),V("Hib booster-1","Hib"),V("IPV booster-1","IPV")]},
+ {k:"m16g", label:"16–24 months", at:{m:16}, to:{m:24},
+  govt:[V("DPT booster-1","DPT"),V("bOPV booster","bOPV"),V("MR-2","MR","Ask your doctor about MMR (adds mumps)"),V("Vitamin A-2","Vitamin A"),V("JE-2","JE","Only in JE districts")]},
+ {k:"m18", label:"18–19 months", at:{m:18}, to:{m:19},
+  iap:[V("Hep A-2","Hep A","Only if your doctor used the inactivated vaccine"),V("Chickenpox-2","Chickenpox","3–6 months after dose 1")],
+  addon:{hepa:[V("Hep A-2","Hep A","Only if your doctor used the inactivated vaccine")],varicella:[V("Chickenpox-2","Chickenpox","3–6 months after dose 1")]}},
+ {k:"y2", label:"2 years", at:{m:24},
+  govt:[V("Vitamin A-3","Vitamin A","Every 6 months till age 5")],
+  iap:[V("Flu (yearly)","Flu","Once a year, before monsoon, till age 5")], addon:{flu:[V("Flu (yearly)","Flu","Once a year, before monsoon")]}},
+ {k:"y25", label:"2½ years", at:{m:30},
+  govt:[V("Vitamin A-4","Vitamin A","Every 6 months till age 5")]},
+ {k:"y3", label:"3 years", at:{m:36},
+  govt:[V("Vitamin A-5","Vitamin A","Every 6 months till age 5")],
+  iap:[V("Flu (yearly)","Flu","Once a year, before monsoon, till age 5")], addon:{flu:[V("Flu (yearly)","Flu","Once a year, before monsoon")]}}
+];
+const ADDONS = [
+ {k:"flu", name:"Flu", why:"6 & 7 months, then once a year"},
+ {k:"typhoid", name:"Typhoid", why:"One dose at 6–9 months"},
+ {k:"hepa", name:"Hepatitis A", why:"12 months (+18 months for some brands)"},
+ {k:"varicella", name:"Chickenpox", why:"15 months and 18 months"}
+];
+const PLAN_NAME = {govt:"Government", private:"Private (IAP)", both:"Govt + private"};
+
+/* ---------- STATE ---------- */
+const $ = id => document.getElementById(id);
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+let S = { name:"", dob:"", plan:"both", addons:{flu:true,typhoid:true,hepa:true,varicella:true} };
+let done = {};
+
+function deviceId(){
+  let id = store.get("tt_dev", null);
+  if(!id){ id = Math.random().toString(36).slice(2) + Date.now().toString(36); store.set("tt_dev", id); }
+  return id;
+}
+const params = new URLSearchParams(location.search);
+if(params.get("test") === "1") store.set("tt_test", true);
+if(params.get("test") === "0") store.set("tt_test", false);
+const IS_TEST = store.get("tt_test", false);
+
+/* ---------- DATES ---------- */
+function parseDate(s){ const [y,m,d] = s.split("-").map(Number); return new Date(y, m-1, d); }
+function today(){ const t = new Date(); return new Date(t.getFullYear(), t.getMonth(), t.getDate()); }
+function addOffset(dob, o){
+  if(o.d !== undefined){ const x = new Date(dob); x.setDate(x.getDate() + o.d); return x; }
+  const y = dob.getFullYear(), m = dob.getMonth() + o.m, d = dob.getDate();
+  const last = new Date(y, m + 1, 0).getDate();        // clamp 31 Jan + 1 month -> 28/29 Feb
+  return new Date(y, m, Math.min(d, last));
+}
+const DAY = 86400000;
+const diffDays = (a, b) => Math.round((a - b) / DAY);
+const fmt = d => d.toLocaleDateString("en-IN", {day:"numeric", month:"short", year:"numeric"});
+const fmtShort = d => d.toLocaleDateString("en-IN", {day:"numeric", month:"short"});
+const ymd = d => d.getFullYear() + String(d.getMonth()+1).padStart(2,"0") + String(d.getDate()).padStart(2,"0");
+
+function ageText(dob){
+  const t = today(), days = diffDays(t, dob);
+  if(days < 7) return days === 0 ? "born today" : days + (days === 1 ? " day" : " days") + " old";
+  if(days < 98) { const w = Math.floor(days/7); return w + " weeks old"; }
+  let months = (t.getFullYear()-dob.getFullYear())*12 + (t.getMonth()-dob.getMonth());
+  if(t.getDate() < dob.getDate()) months--;
+  if(months < 24) return months + " months old";
+  const y = Math.floor(months/12), r = months % 12;
+  return y + " year" + (y>1?"s":"") + (r ? " " + r + " month" + (r>1?"s":"") : "") + " old";
+}
+
+/* ---------- SCHEDULE ---------- */
+function vaccinesFor(v){
+  if(S.plan === "govt") return (v.govt||[]).map(x => ({...x, tag:"g"}));
+  if(S.plan === "private") return (v.iap||[]).map(x => ({...x, tag:"p"}));
+  let out = (v.govt||[]).map(x => ({...x, tag:"g"}));
+  if(v.addon) for(const k in v.addon) if(S.addons[k]) out = out.concat(v.addon[k].map(x => ({...x, tag:"p"})));
+  return out;
+}
+function schedule(){
+  const dob = parseDate(S.dob), t = today();
+  return VISITS.map(v => {
+    const vac = vaccinesFor(v);
+    if(!vac.length) return null;
+    const from = addOffset(dob, v.at), to = v.to ? addOffset(dob, v.to) : null;
+    const end = to || new Date(from.getTime() + 14*DAY);
+    let status;
+    if(done[v.k]) status = "done";
+    else if(t > end) status = "overdue";
+    else if(diffDays(from, t) <= 7) status = "soon";
+    else status = "up";
+    return {...v, vac, from, to, status};
+  }).filter(Boolean);
+}
+function eventDate(v){
+  const t = today(), tm = new Date(t.getTime() + DAY);
+  return v.from < tm ? tm : v.from;      // window already open -> remind tomorrow
+}
+
+/* ---------- LINKS ---------- */
+function childName(){ return S.name ? S.name : "Baby"; }
+function vacText(v){ return v.vac.map(x => x.name).join(", "); }
+function gcalLink(v){
+  const d = eventDate(v), s = ymd(d);
+  const title = "💉 " + childName() + "'s teeka: " + v.label + " vaccines";
+  const when = v.to ? "Due between " + fmt(v.from) + " and " + fmt(v.to) + "." : "Due on " + fmt(v.from) + ".";
+  const details = when + "\nVaccines: " + vacText(v) + "\n\nCall your paediatrician to book. Always confirm with your doctor.\nFull schedule: " + shareUrl();
+  return "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(title) +
+    "&dates=" + s + "T100000/" + s + "T103000&ctz=Asia/Kolkata&details=" + encodeURIComponent(details);
+}
+function shareUrl(){
+  const p = new URLSearchParams({dob:S.dob, plan:S.plan});
+  if(S.name) p.set("n", S.name);
+  if(S.plan === "both") p.set("a", ADDONS.filter(a => S.addons[a.k]).map(a => a.k).join("."));
+  return location.origin + location.pathname + "?" + p.toString();
+}
+function shareText(){
+  const list = schedule().filter(v => v.status !== "done" && v.status !== "overdue").slice(0, 6);
+  let t = "💉 " + childName() + "'s vaccine dates (" + PLAN_NAME[S.plan] + ")\n\n";
+  list.forEach(v => { t += "• " + fmtShort(v.from) + (v.to ? "–" + fmtShort(v.to) : "") + " (" + v.label + "): " + vacText(v) + "\n"; });
+  t += "\nFull schedule + reminders: " + shareUrl() + "\n(Made with TeekaTime – free, no app)";
+  return t;
+}
+function icsFile(list){
+  const esc = s => s.replace(/\\/g,"\\\\").replace(/,/g,"\\,").replace(/;/g,"\\;").replace(/\n/g,"\\n");
+  const stamp = new Date().toISOString().replace(/[-:]/g,"").split(".")[0] + "Z";
+  let o = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//TeekaTime//EN","CALSCALE:GREGORIAN","METHOD:PUBLISH"];
+  list.forEach(v => {
+    const d = eventDate(v), s = ymd(d);
+    // 10:00 IST = 04:30 UTC
+    o.push("BEGIN:VEVENT","UID:" + v.k + "-" + S.dob + "@teekatime","DTSTAMP:" + stamp,
+      "DTSTART:" + s + "T043000Z","DTEND:" + s + "T050000Z",
+      "SUMMARY:" + esc("💉 " + childName() + "'s teeka: " + v.label + " vaccines"),
+      "DESCRIPTION:" + esc((v.to ? "Due " + fmt(v.from) + " – " + fmt(v.to) : "Due " + fmt(v.from)) + ". Vaccines: " + vacText(v) + ". Always confirm with your paediatrician."),
+      "BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:Teeka tomorrow","TRIGGER:-P1DT1H","END:VALARM",
+      "BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:Teeka today","TRIGGER:-PT1H","END:VALARM",
+      "END:VEVENT");
+  });
+  o.push("END:VCALENDAR");
+  return o.join("\r\n");
+}
+
+/* ---------- LOGGING (anonymous) ---------- */
+function log(action){
+  try{
+    if(!SUPABASE_URL || !SUPABASE_KEY) return;
+    const weeks = S.dob ? Math.max(0, Math.floor(diffDays(today(), parseDate(S.dob)) / 7)) : null;
+    fetch(SUPABASE_URL + "/rest/v1/completions", {
+      method:"POST", keepalive:true,
+      headers:{"apikey":SUPABASE_KEY,"Authorization":"Bearer " + SUPABASE_KEY,"Content-Type":"application/json","Prefer":"return=minimal"},
+      body: JSON.stringify({device_id: deviceId(), plan: S.plan, baby_age_weeks: weeks, action: (IS_TEST ? "test_" : "") + action})
+    }).catch(()=>{});
+  }catch(e){}
+}
+
+/* ---------- UI ---------- */
+function toast(msg){ const t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 2600); }
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+function tagHtml(tag){ return tag === "g" ? '<span class="tag tg">Free at govt centre</span>' : '<span class="tag tp">Private (IAP)</span>'; }
+function vacListHtml(v){
+  return '<ul class="vlist">' + v.vac.map(x =>
+    '<li><span class="vname">' + x.name + '</span>' + tagHtml(x.tag) +
+    '<span class="vwhy">' + (WHY[x.base] || "") + (x.extra ? " · " + x.extra : "") + '</span></li>').join("") + '</ul>';
+}
+function dateHtml(v){ return v.to ? fmtShort(v.from) + " – " + fmtShort(v.to) : fmt(v.from); }
+
+function renderS2(){
+  const sch = schedule();
+  const dob = parseDate(S.dob);
+  $("ageLine").textContent = childName() + " is " + ageText(dob) + ".";
+  $("planPill").textContent = PLAN_NAME[S.plan];
+  // next card
+  const nxt = sch.find(v => v.status === "soon" || v.status === "up");
+  if(nxt){
+    const days = diffDays(nxt.from, today());
+    const whenTxt = days <= 0 ? (nxt.to ? "Due now · till " + fmt(nxt.to) : "Due now") : (days === 1 ? "Due tomorrow · " + fmt(nxt.from) : "Due in " + days + " days · " + dateHtml(nxt));
+    $("nextCard").innerHTML = '<div class="when">NEXT TEEKA · ' + whenTxt + '</div><div class="what">' + nxt.label + ' vaccines</div><ul>' +
+      nxt.vac.map(x => '<li>✓ ' + x.name + ' – ' + (WHY[x.base]||"") + '</li>').join("") +
+      '</ul><a class="btn" id="addNext" href="' + gcalLink(nxt) + '" target="_blank" rel="noopener">📅 Add to my calendar</a>' +
+      (isIOS ? '<button class="btn" style="margin-top:8px;background:rgba(255,255,255,.15);color:#fff" id="addNextIcs" type="button">iPhone? Add to Apple Calendar</button>' : '') +
+      '<p class="note" style="color:#ccfbf1">You get a phone reminder. No sign-up needed.</p>';
+    $("addNext").onclick = () => { log("gcal_add"); setTimeout(() => showS3(nxt), 400); };
+    if(isIOS) $("addNextIcs").onclick = () => { openIcs([nxt]); log("ics_add"); setTimeout(() => showS3(nxt), 600); };
+    $("nextCard").classList.remove("hide");
+  } else {
+    $("nextCard").innerHTML = '<div class="what">All caught up 🎉</div><p>No more routine vaccines in this plan up to age 3. Keep confirming with your doctor.</p>';
+  }
+  // addons
+  $("addonBox").classList.toggle("hide", S.plan !== "both");
+  if(S.plan === "both"){
+    $("addons").innerHTML = ADDONS.map(a =>
+      '<div class="tog"><div><b>' + a.name + '</b> <span class="tag tp">Private</span><small>' + WHY[a.name === "Hepatitis A" ? "Hep A" : a.name] + ' · ' + a.why + '</small></div>' +
+      '<label class="sw"><input type="checkbox" data-a="' + a.k + '"' + (S.addons[a.k] ? " checked" : "") + '><span></span></label></div>').join("");
+    $("addons").querySelectorAll("input").forEach(i => i.onchange = () => { S.addons[i.dataset.a] = i.checked; save(); renderS2(); });
+  }
+  // lists
+  const groups = [
+    ["overdue", "Past due date", "r"], ["soon", "Due in the next 7 days", "a"], ["up", "Upcoming", ""], ["done", "Given", ""]
+  ];
+  let html = "";
+  groups.forEach(([st, title]) => {
+    const items = sch.filter(v => v.status === st);
+    if(!items.length) return;
+    html += "<h3>" + title + " (" + items.length + ")</h3>";
+    if(st === "overdue") html += '<p class="note" style="margin:-4px 0 10px">Already given? Mark them. If any were missed, ask your doctor about catch-up doses. <button class="link" id="markAll" type="button">Mark all as given</button></p>';
+    items.forEach(v => {
+      html += '<div class="visit ' + st + '"><div class="vhead"><span class="vage">' + v.label + '</span><span class="vdate">' + dateHtml(v) + '</span></div>' + vacListHtml(v) +
+        '<div class="vact">' +
+        (st === "done" ? '<button class="chip" data-undo="' + v.k + '" type="button">Undo</button>'
+          : '<button class="chip ' + (st === "overdue" ? "ok" : "") + '" data-done="' + v.k + '" type="button">✓ Mark given</button>' +
+            (st !== "overdue" ? '<a class="chip t" data-cal="' + v.k + '" href="' + gcalLink(v) + '" target="_blank" rel="noopener">📅 Add</a>' : '')) +
+        '</div></div>';
+    });
+  });
+  $("lists").innerHTML = html;
+  $("lists").querySelectorAll("[data-done]").forEach(b => b.onclick = () => { done[b.dataset.done] = true; save(); renderS2(); toast("Marked as given"); });
+  $("lists").querySelectorAll("[data-undo]").forEach(b => b.onclick = () => { delete done[b.dataset.undo]; save(); renderS2(); });
+  $("lists").querySelectorAll("[data-cal]").forEach(b => b.onclick = () => { log("gcal_add"); const v = sch.find(x => x.k === b.dataset.cal); setTimeout(() => showS3(v), 400); });
+  const ma = $("markAll"); if(ma) ma.onclick = () => { sch.filter(v => v.status === "overdue").forEach(v => done[v.k] = true); save(); renderS2(); toast("Past visits marked as given"); };
+  const wa = "https://wa.me/?text=" + encodeURIComponent(shareText());
+  $("share1").href = wa; $("share2").href = wa;
+}
+
+function openIcs(list){
+  const blob = new Blob([icsFile(list)], {type:"text/calendar;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+  if(isIOS){ location.href = url; }
+  else { const a = document.createElement("a"); a.href = url; a.download = "teekatime-" + childName().toLowerCase() + ".ics"; document.body.appendChild(a); a.click(); a.remove(); }
+  setTimeout(() => URL.revokeObjectURL(url), 60000);
+}
+
+function showS3(added){
+  const rest = schedule().filter(v => (v.status === "soon" || v.status === "up") && (!added || v.k !== added.k));
+  $("s3line").textContent = added ? "We've opened your calendar for the " + added.label + " vaccines. Tap Save there if you haven't." : "Your phone will remind you before the next teeka.";
+  $("restList").innerHTML = rest.length ? rest.map(v =>
+    '<div class="vhead" style="padding:10px 0;border-top:1px solid #eee"><span><b>' + v.label + '</b><span class="vwhy">' + dateHtml(v) + '</span></span><a class="chip t" data-cal3="' + v.k + '" href="' + gcalLink(v) + '" target="_blank" rel="noopener">📅 Add</a></div>').join("")
+    : '<p class="note">No other upcoming visits.</p>';
+  $("restList").querySelectorAll("[data-cal3]").forEach(b => b.onclick = () => { log("gcal_add"); b.textContent = "✓ Added"; b.classList.add("ok"); });
+  $("icsAll").onclick = () => { openIcs(schedule().filter(v => v.status === "soon" || v.status === "up")); log("ics_add"); toast("Opening your calendar…"); };
+  const n = childName(), nxt = added || rest[0];
+  const conf = "Hi! I've paid ₹" + PRICE + " for TeekaTime WhatsApp reminders.\n\nBaby's name: " + n + "\nDate of birth: " + fmt(parseDate(S.dob)) +
+    "\nPlan: " + PLAN_NAME[S.plan] + (nxt ? "\nNext teeka: " + nxt.label + " (" + dateHtml(nxt) + ")" : "") + "\nUPI ref no.: ";
+  $("confirmBtn").href = "https://wa.me/" + OWNER_WA + "?text=" + encodeURIComponent(conf);
+  show("s3");
+}
+
+function show(id){ ["s1","s2","s3"].forEach(s => $(s).classList.toggle("hide", s !== id)); window.scrollTo(0,0); }
+function save(){ store.set("tt_state", S); store.set("tt_done_" + S.dob, done); }
+
+/* ---------- SCREEN 1 ---------- */
+(function init(){
+  const t = today(), min = new Date(t); min.setFullYear(min.getFullYear() - 3);
+  const iso = d => d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+  $("dob").max = iso(t); $("dob").min = iso(min);
+
+  const saved = store.get("tt_state", null);
+  if(saved) S = Object.assign(S, saved);
+  // shared link overrides
+  if(params.get("dob")){
+    S.dob = params.get("dob"); S.plan = ["govt","private","both"].includes(params.get("plan")) ? params.get("plan") : "both";
+    S.name = (params.get("n") || "").slice(0,30);
+    if(params.get("a") !== null){ const a = params.get("a").split("."); ADDONS.forEach(x => S.addons[x.k] = a.includes(x.k)); }
+  }
+  $("name").value = S.name; $("dob").value = S.dob;
+  document.querySelectorAll(".choice").forEach(c => {
+    c.classList.toggle("on", c.dataset.plan === S.plan);
+    c.onclick = () => { S.plan = c.dataset.plan; document.querySelectorAll(".choice").forEach(x => x.classList.toggle("on", x === c)); };
+  });
+  $("go").onclick = () => {
+    const v = $("dob").value;
+    if(!v || parseDate(v) > t || parseDate(v) < min){ $("dobErr").style.display = "block"; $("dob").focus(); return; }
+    $("dobErr").style.display = "none";
+    S.name = $("name").value.trim().replace(/[<>"]/g, "").slice(0,30); S.dob = v;
+    done = store.get("tt_done_" + S.dob, {});
+    save(); renderS2(); show("s2"); log("schedule_view");
+  };
+  $("back").onclick = () => show("s1");
+  $("back2").onclick = () => { renderS2(); show("s2"); };
+  $("upiId").textContent = UPI_ID;
+  $("upiBtn").href = "upi://pay?pa=" + UPI_ID + "&pn=" + encodeURIComponent("TeekaTime") + "&am=" + PRICE + ".00&cu=INR&tn=" + encodeURIComponent("TeekaTime reminders");
+  $("upiBtn").onclick = () => log("upi_click");
+  $("copyUpi").onclick = () => { (navigator.clipboard ? navigator.clipboard.writeText(UPI_ID) : Promise.reject()).then(() => toast("UPI ID copied"), () => toast("UPI ID: " + UPI_ID)); };
+  $("confirmBtn").onclick = () => log("paid_confirm");
+  // opened from a shared link -> go straight to schedule
+  if(params.get("dob") && S.dob){ done = store.get("tt_done_" + S.dob, {}); renderS2(); show("s2"); log("schedule_view_shared"); }
+})();
+</script>
+</body>
+</html>
