@@ -16,7 +16,12 @@ html{-webkit-text-size-adjust:100%}
 body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;background:var(--blush);color:var(--ink);font-size:16px;line-height:1.45}
 .wrap{max-width:480px;margin:0 auto;padding:14px 16px 40px}
 header{display:flex;align-items:center;gap:10px;margin:2px 0 16px}
-.logo{width:40px;height:40px;border-radius:14px;background:linear-gradient(135deg,#FF5A7D,#A83A59);display:grid;place-items:center;font-size:22px;box-shadow:0 4px 12px rgba(168,58,89,.25)}
+.logo{width:44px;height:44px;border-radius:14px;display:block;box-shadow:0 6px 16px rgba(168,58,89,.28);flex:none}
+.floaty{position:absolute;right:12px;top:10px;display:flex;gap:6px;font-size:22px;opacity:.9}
+.floaty span{display:inline-block}
+@media (prefers-reduced-motion:no-preference){.floaty span{animation:bob 3s ease-in-out infinite}.floaty span:nth-child(2){animation-delay:.6s}.floaty span:nth-child(3){animation-delay:1.2s}@keyframes bob{50%{transform:translateY(-6px)}}.ok-big{animation:boing .8s ease}@keyframes boing{0%{transform:scale(.4)}60%{transform:scale(1.15)}100%{transform:scale(1)}}}
+@media (min-width:700px){body{background:radial-gradient(circle at 12% 18%,#FFE1E8 0,transparent 32%),radial-gradient(circle at 88% 72%,#EEF0FF 0,transparent 38%),var(--blush);background-attachment:fixed}.wrap{padding-top:36px}h1{font-size:34px}}
+.upiqr{display:block;margin:10px auto 4px;border-radius:16px;background:#fff;padding:8px;width:180px;height:180px}
 .brand{font-weight:800;font-size:21px;letter-spacing:-.3px;color:var(--deep)}
 .brand small{display:block;font-weight:500;font-size:12px;color:var(--mute);letter-spacing:0}
 h1{font-size:30px;line-height:1.12;letter-spacing:-.6px;margin-bottom:8px}
@@ -25,7 +30,7 @@ h2{font-size:21px;margin-bottom:4px;letter-spacing:-.3px}
 h3{font-size:13px;text-transform:uppercase;letter-spacing:.8px;color:var(--mute);margin:24px 0 10px;font-weight:700}
 .lead{color:#3d3a46;margin-bottom:16px}
 .card{background:var(--card);border-radius:22px;padding:18px;margin-bottom:12px;box-shadow:0 2px 14px rgba(168,58,89,.07)}
-.hero{background:linear-gradient(135deg,#FFE1E8,#FFF5F7 60%,#EEF0FF)}
+.hero{background:linear-gradient(135deg,#FFE1E8,#FFF5F7 60%,#EEF0FF);position:relative;overflow:hidden}
 label.f{display:block;font-weight:650;margin:14px 0 6px}
 label.f:first-child{margin-top:0}
 label.f span{font-weight:400;color:var(--mute)}
@@ -142,13 +147,14 @@ input:focus{outline:none;border-color:var(--deep);box-shadow:0 0 0 4px #ffd6e0}
 <body>
 <div class="wrap">
   <header>
-    <div class="logo">💉</div>
+    <svg class="logo" viewBox="0 0 44 44" role="img" aria-label="TeekaTime logo"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF7A95"/><stop offset="1" stop-color="#A83A59"/></linearGradient></defs><rect width="44" height="44" rx="14" fill="url(#lg)"/><path d="M22 9l10 3.8v7.3c0 6.6-4.3 11.7-10 13.9-5.7-2.2-10-7.3-10-13.9v-7.3z" fill="#fff"/><path d="M22 28.2s-5.6-3.4-5.6-7.2c0-1.9 1.4-3.2 3.1-3.2 1.1 0 2 .6 2.5 1.4.5-.8 1.4-1.4 2.5-1.4 1.7 0 3.1 1.3 3.1 3.2 0 3.8-5.6 7.2-5.6 7.2z" fill="#FF5A7D"/><circle cx="34.5" cy="9.5" r="2.2" fill="#FFE3D6"/><circle cx="38" cy="14" r="1.2" fill="#FFE3D6"/></svg>
     <div class="brand">TeekaTime<small>Your baby's vaccine buddy</small></div>
   </header>
 
   <!-- SCREEN 1 -->
   <section id="s1">
     <div class="card hero">
+      <div class="floaty" aria-hidden="true"><span>🍼</span><span>🧸</span><span>⭐</span></div>
       <h1>Never miss your baby's <em>teeka</em> 💕</h1>
       <p class="lead" style="margin:0">Add your baby's birthday and we'll build their vaccine calendar – government and private – with reminders on your phone. <b>Free. No app, no login.</b></p>
     </div>
@@ -165,7 +171,7 @@ input:focus{outline:none;border-color:var(--deep);box-shadow:0 0 0 4px #ffd6e0}
         <button class="choice on" data-plan="both" type="button"><span class="em">🤝</span><span><b>Both</b><small>Free govt vaccines + a few private ones like flu & typhoid</small></span><span class="dot"></span></button>
       </div>
       <button class="btn" id="go" type="button">Show my baby's teeka dates →</button>
-      <p class="note">🔒 Your baby's details stay on your phone.</p>
+      <p class="note">🔒 Name and birth date stay on your phone. No sign-up.</p>
     </div>
   </section>
 
@@ -207,6 +213,7 @@ input:focus{outline:none;border-color:var(--deep);box-shadow:0 0 0 4px #ffd6e0}
       <ol class="steps">
         <li><b>Pay ₹49</b> by UPI (GPay, PhonePe, Paytm, CRED)
           <a class="btn dark sm" id="upiBtn">Pay ₹49 by UPI</a>
+          <div id="upiDesk" class="hide"><p class="note">💻 On a laptop? Scan this with any UPI app on your phone:</p><img class="upiqr" id="upiQr" alt="UPI QR code to pay ₹49 to TeekaTime"></div>
           <div class="upi"><code id="upiId"></code><button class="chip t" id="copyUpi" type="button">Copy</button></div>
           <p class="note" style="margin-top:6px">If the button doesn't open your app, copy the UPI ID and pay ₹49 from your UPI app.</p>
         </li>
@@ -214,7 +221,8 @@ input:focus{outline:none;border-color:var(--deep);box-shadow:0 0 0 4px #ffd6e0}
           <a class="btn wa sm" id="confirmBtn" target="_blank" rel="noopener">I've paid – send confirmation</a>
         </li>
       </ol>
-      <p class="note">You'll get a welcome message within a few hours. 💌</p>
+      <p class="note">You'll get a welcome message within a few hours. 💌 Payment goes to the founder, Anshul Pareek. We use your WhatsApp number and baby's details only to send these reminders – ask us anytime to delete them.</p>
+      <p class="note"><b>Refund or help?</b> <a class="link" id="helpLink" target="_blank" rel="noopener">WhatsApp us</a> – refunds go back to your UPI within 3 working days.</p>
     </div>
     <a class="btn wa" id="share2" target="_blank" rel="noopener">Share plan on WhatsApp</a>
     <h3>Or add the other visits yourself</h3>
@@ -225,7 +233,7 @@ input:focus{outline:none;border-color:var(--deep);box-shadow:0 0 0 4px #ffd6e0}
     </div>
   </section>
 
-  <div class="trust"><span style="font-size:20px">📋</span><div>Based on India's National Immunization Schedule (MoHFW) and the <a href="https://www.indianpediatrics.net/feb2024/113.pdf" target="_blank" rel="noopener">IAP-ACVIP schedule</a> · Last checked Nov 2026 · Your baby's data stays on this phone.<br><b>A reminder tool, not medical advice. Your doctor may adjust dates – their advice comes first.</b> Dose counts can vary with the vaccine brand.</div></div>
+  <div class="trust"><span style="font-size:20px">📋</span><div>Based on India's National Immunization Schedule (MoHFW) and the <a href="https://www.indianpediatrics.net/feb2024/113.pdf" target="_blank" rel="noopener">IAP-ACVIP schedule</a> · Last checked Nov 2026 · Name and birth date stay on this phone; we only count anonymous visits.<br><b>A reminder tool, not medical advice. Your doctor may adjust dates – their advice comes first.</b> Dose counts can vary with the vaccine brand.<br>Made by Anshul Pareek, Indore · Not affiliated with IAP or the Government of India · Help &amp; refunds: <a id="helpLink2" target="_blank" rel="noopener">WhatsApp +91 89625 09179</a></div></div>
 </div>
 <div class="toast" id="toast"></div>
 
@@ -598,7 +606,12 @@ function save(){ store.set("tt_state", S); store.set("tt_done_" + S.dob, done); 
   $("back").onclick = () => show("s1");
   $("back2").onclick = () => { renderS2(); show("s2"); };
   $("upiId").textContent = UPI_ID;
-  $("upiBtn").href = "upi://pay?pa=" + UPI_ID + "&pn=" + encodeURIComponent("TeekaTime") + "&am=" + PRICE + ".00&cu=INR&tn=" + encodeURIComponent("TeekaTime reminders");
+  const upiLink = "upi://pay?pa=" + UPI_ID + "&pn=" + encodeURIComponent("TeekaTime") + "&am=" + PRICE + ".00&cu=INR&tn=" + encodeURIComponent("TeekaTime reminders");
+  $("upiBtn").href = upiLink;
+  const isMobile = isIOS || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  if(!isMobile){ $("upiBtn").classList.add("hide"); $("upiDesk").classList.remove("hide"); $("upiQr").src = "https://api.qrserver.com/v1/create-qr-code/?size=360x360&margin=0&data=" + encodeURIComponent(upiLink); }
+  const help = "https://wa.me/" + OWNER_WA + "?text=" + encodeURIComponent("Hi, I need help with TeekaTime (refund / question): ");
+  $("helpLink").href = help; $("helpLink2").href = help;
   $("upiBtn").onclick = () => log("upi_click");
   $("copyUpi").onclick = () => { (navigator.clipboard ? navigator.clipboard.writeText(UPI_ID) : Promise.reject()).then(() => toast("UPI ID copied"), () => toast("UPI ID: " + UPI_ID)); };
   $("confirmBtn").onclick = () => log("paid_confirm");
