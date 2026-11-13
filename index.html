@@ -593,7 +593,7 @@ function loadCount(){
     fetch(SUPABASE_URL + "/rest/v1/rpc/parents_count", {method:"POST", headers:{"apikey":SUPABASE_KEY,"Content-Type":"application/json"}, body:"{}"})
       .then(r => r.ok ? r.json() : 0).then(n => {
         if(typeof n !== "number" || n < 5) return;
-        const html = "💗 <span><b>" + n + " parents</b> have already made sure their baby won't miss a teeka</span>";
+        const html = "💗 <span><b>" + n + " parents</b> have already checked their baby's teeka dates</span>";
         ["social1","social3"].forEach(id => { $(id).innerHTML = html; $(id).classList.remove("hide"); });
       }).catch(()=>{});
   }catch(e){}
