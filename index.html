@@ -7,124 +7,159 @@
 <meta name="description" content="Enter your baby's birth date. Get every vaccine date – government and private – with reminders on your phone. No app, no login.">
 <meta property="og:title" content="TeekaTime – Never miss your baby's teeka">
 <meta property="og:description" content="Every vaccine date for your baby (govt + private), with phone reminders. Free, no app, no login.">
-<meta name="theme-color" content="#0f766e">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f766e'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3ET%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#A83A59">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23A83A59'/%3E%3Ctext x='32' y='44' font-size='32' text-anchor='middle'%3E%F0%9F%92%89%3C/text%3E%3C/svg%3E">
 <style>
-:root{--teal:#0f766e;--teal2:#14b8a6;--tealbg:#ecfdf5;--ink:#1f2937;--mute:#6b7280;--line:#e5e7eb;--red:#b91c1c;--redbg:#fef2f2;--amb:#b45309;--ambbg:#fffbeb;--blue:#1d4ed8;--bluebg:#eff6ff;--card:#fff;--bg:#f7f7f4}
+:root{--blush:#FFF5F7;--rose:#FF5A7D;--deep:#A83A59;--teal:#0E7270;--tealbg:#E3F4F2;--peach:#FFE3D6;--peachtx:#9A3B12;--lav:#EEF0FF;--lavtx:#3F49B8;--ink:#23202B;--mute:#5B6275;--line:#F1E4E8;--card:#fff}
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans",Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.45}
-.wrap{max-width:480px;margin:0 auto;padding:16px 16px 40px}
-header{display:flex;align-items:center;gap:10px;margin:4px 0 18px}
-.logo{width:36px;height:36px;border-radius:10px;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:800;font-size:20px}
-.brand{font-weight:800;font-size:20px;letter-spacing:-.2px}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;background:var(--blush);color:var(--ink);font-size:16px;line-height:1.45}
+.wrap{max-width:480px;margin:0 auto;padding:14px 16px 40px}
+header{display:flex;align-items:center;gap:10px;margin:2px 0 16px}
+.logo{width:40px;height:40px;border-radius:14px;background:linear-gradient(135deg,#FF5A7D,#A83A59);display:grid;place-items:center;font-size:22px;box-shadow:0 4px 12px rgba(168,58,89,.25)}
+.brand{font-weight:800;font-size:21px;letter-spacing:-.3px;color:var(--deep)}
 .brand small{display:block;font-weight:500;font-size:12px;color:var(--mute);letter-spacing:0}
-h1{font-size:28px;line-height:1.15;letter-spacing:-.5px;margin-bottom:8px}
-h2{font-size:20px;margin-bottom:6px}
-h3{font-size:15px;text-transform:uppercase;letter-spacing:.6px;color:var(--mute);margin:22px 0 8px}
-.lead{color:#374151;margin-bottom:18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px}
-label.f{display:block;font-weight:600;margin:14px 0 6px}
+h1{font-size:30px;line-height:1.12;letter-spacing:-.6px;margin-bottom:8px}
+h1 em{font-style:normal;color:var(--deep)}
+h2{font-size:21px;margin-bottom:4px;letter-spacing:-.3px}
+h3{font-size:13px;text-transform:uppercase;letter-spacing:.8px;color:var(--mute);margin:24px 0 10px;font-weight:700}
+.lead{color:#3d3a46;margin-bottom:16px}
+.card{background:var(--card);border-radius:22px;padding:18px;margin-bottom:12px;box-shadow:0 2px 14px rgba(168,58,89,.07)}
+.hero{background:linear-gradient(135deg,#FFE1E8,#FFF5F7 60%,#EEF0FF)}
+label.f{display:block;font-weight:650;margin:14px 0 6px}
+label.f:first-child{margin-top:0}
 label.f span{font-weight:400;color:var(--mute)}
-input[type=text],input[type=date]{width:100%;font-size:17px;padding:14px;border:1.5px solid #d1d5db;border-radius:12px;background:#fff;color:var(--ink);min-height:52px;-webkit-appearance:none;appearance:none}
-input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px #99f6e4}
+input[type=text],input[type=date]{width:100%;font-size:17px;padding:14px;border:1.5px solid #ead9de;border-radius:14px;background:#fff;color:var(--ink);min-height:54px;-webkit-appearance:none;appearance:none;font-family:inherit}
+input:focus{outline:none;border-color:var(--deep);box-shadow:0 0 0 4px #ffd6e0}
 .choices{display:grid;gap:10px}
-.choice{display:flex;gap:12px;align-items:flex-start;border:1.5px solid #d1d5db;border-radius:14px;padding:14px;background:#fff;cursor:pointer;text-align:left;width:100%;font:inherit;color:inherit}
-.choice .dot{width:22px;height:22px;border-radius:50%;border:2px solid #9ca3af;flex:none;margin-top:1px}
-.choice.on{border-color:var(--teal);background:var(--tealbg)}
-.choice.on .dot{border:7px solid var(--teal)}
+.choice{display:flex;gap:12px;align-items:center;border:1.5px solid #ead9de;border-radius:18px;padding:13px 14px;background:#fff;cursor:pointer;text-align:left;width:100%;font:inherit;color:inherit}
+.choice .em{font-size:26px;width:34px;text-align:center;flex:none}
+.choice .dot{width:22px;height:22px;border-radius:50%;border:2px solid #cbb5bc;flex:none;margin-left:auto}
+.choice.on{border-color:var(--deep);background:#FFF0F4}
+.choice.on .dot{border:7px solid var(--deep)}
 .choice b{display:block}
-.choice small{color:var(--mute);font-size:14px}
-.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:54px;border:0;border-radius:14px;background:var(--teal);color:#fff;font-size:17px;font-weight:700;cursor:pointer;text-decoration:none;padding:12px 16px;margin-top:12px;font-family:inherit}
-.btn:active{transform:scale(.99)}
-.btn.sec{background:#fff;color:var(--teal);border:1.5px solid var(--teal)}
-.btn.wa{background:#16a34a}
-.btn.dark{background:#111827}
-.btn.sm{min-height:44px;font-size:15px;border-radius:12px;margin-top:8px}
-.note{font-size:14px;color:var(--mute);margin-top:10px}
-.err{color:var(--red);font-size:14px;margin-top:8px;display:none}
-.next{background:linear-gradient(135deg,#0f766e,#115e59);color:#fff;border:0}
-.next .when{font-size:14px;opacity:.9}
-.next .what{font-size:22px;font-weight:800;margin:4px 0 6px;line-height:1.2}
-.next ul{list-style:none;margin:8px 0 4px}
-.next li{font-size:15px;padding:3px 0;opacity:.95}
-.next .btn{background:#fff;color:var(--teal)}
-.visit{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px}
-.visit.overdue{border-color:#fecaca;background:var(--redbg)}
-.visit.soon{border-color:#fde68a;background:var(--ambbg)}
-.visit.done{opacity:.6}
-.vhead{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
-.vage{font-weight:800;font-size:17px}
-.vdate{font-size:14px;color:var(--mute);text-align:right}
-.vlist{list-style:none;margin:8px 0 6px}
-.vlist li{padding:6px 0;border-top:1px dashed #e5e7eb;font-size:15px}
+.choice small{color:var(--mute);font-size:13.5px;line-height:1.35;display:block}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:54px;border:0;border-radius:999px;background:var(--deep);color:#fff;font-size:17px;font-weight:700;cursor:pointer;text-decoration:none;padding:12px 18px;margin-top:12px;font-family:inherit;box-shadow:0 6px 16px rgba(168,58,89,.25)}
+.btn:active{transform:scale(.98)}
+.btn.out{background:#fff;color:var(--teal);border:2px solid var(--teal);box-shadow:none}
+.btn.wa{background:#1f9d55;box-shadow:0 6px 16px rgba(31,157,85,.22)}
+.btn.dark{background:#23202B;box-shadow:none}
+.btn.sm{min-height:46px;font-size:15.5px;margin-top:8px}
+.row2{display:grid;grid-template-columns:1.35fr 1fr;gap:8px}
+.row2 .btn{margin-top:12px}
+.note{font-size:13.5px;color:var(--mute);margin-top:10px}
+.err{color:var(--deep);font-size:14px;margin-top:8px;display:none;font-weight:600}
+/* next card */
+.next{background:#fff;border:2px solid #ffd2dd}
+.nhead{display:flex;gap:14px;align-items:center}
+.ring{width:84px;height:84px;flex:none;position:relative}
+.ring svg{width:84px;height:84px;transform:rotate(-90deg)}
+.ring .c{position:absolute;inset:0;display:grid;place-items:center;text-align:center;line-height:1}
+.ring .c b{font-size:24px;color:var(--deep);display:block}
+.ring .c span{font-size:11px;color:var(--mute);font-weight:600}
+.kicker{font-size:12px;font-weight:800;letter-spacing:.8px;color:var(--rose);text-transform:uppercase}
+.nwhat{font-size:21px;font-weight:800;line-height:1.15;margin:2px 0 3px;letter-spacing:-.3px}
+.nwhen{font-size:14px;color:var(--mute)}
+.chip-st{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;margin-top:6px}
+.st-soon{background:var(--peach);color:var(--peachtx)}
+.st-up{background:var(--lav);color:var(--lavtx)}
+.st-over{background:#FFE4EA;color:var(--deep)}
+.st-done{background:var(--tealbg);color:var(--teal)}
+.vlist{list-style:none;margin:12px 0 2px}
+.vlist li{padding:8px 0;border-top:1px dashed #f0dde3;font-size:15px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 6px}
 .vlist li:first-child{border-top:0}
-.vname{font-weight:600}
-.vwhy{color:var(--mute);font-size:13px;display:block}
-.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:999px;margin-left:4px;vertical-align:1px;white-space:nowrap}
-.tg{background:#dcfce7;color:#166534}
-.tp{background:var(--bluebg);color:var(--blue)}
-.to{background:#f3f4f6;color:#4b5563}
-.vact{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
-.chip{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;text-decoration:none;font-family:inherit;min-height:40px;display:inline-flex;align-items:center}
-.chip.t{border-color:var(--teal);color:var(--teal)}
+.vname{font-weight:650}
+.vwhy{color:var(--mute);font-size:13px;flex-basis:100%}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.tg{background:var(--tealbg);color:var(--teal)}
+.tp{background:var(--lav);color:var(--lavtx)}
+.tip{background:#FFF8F0;border-radius:14px;padding:10px 12px;font-size:13.5px;color:#6b4a2f;margin-top:12px}
+/* progress */
+.prog{display:flex;align-items:center;gap:12px}
+.prog .em{font-size:30px}
+.bar{height:10px;background:#f7e3e9;border-radius:999px;overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#FF5A7D,#A83A59);border-radius:999px}
+/* timeline */
+.tl{position:relative;padding-left:22px}
+.tl:before{content:"";position:absolute;left:7px;top:8px;bottom:8px;border-left:2px dotted #e9c6d1}
+.visit{position:relative;background:#fff;border-radius:20px;padding:14px 16px;margin-bottom:10px;box-shadow:0 2px 10px rgba(168,58,89,.06)}
+.visit:before{content:"";position:absolute;left:-21px;top:20px;width:12px;height:12px;border-radius:50%;background:#e9c6d1;border:3px solid var(--blush)}
+.visit.overdue:before{background:var(--rose)}
+.visit.soon:before{background:#f59e6b}
+.visit.up:before{background:#8b93e8}
+.visit.done:before{background:var(--teal)}
+.visit.done{opacity:.75}
+.vhead{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.vage{font-weight:800;font-size:17px}
+.vdate{font-size:13.5px;color:var(--mute)}
+.vact{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.chip{border:1.5px solid #ead9de;background:#fff;border-radius:999px;padding:8px 14px;font-size:14px;font-weight:650;color:var(--ink);cursor:pointer;text-decoration:none;font-family:inherit;min-height:40px;display:inline-flex;align-items:center;gap:4px}
+.chip.t{border-color:var(--deep);color:var(--deep)}
+.chip.g{border-color:var(--teal);color:var(--teal)}
 .chip.ok{background:var(--teal);border-color:var(--teal);color:#fff}
-.flag{font-size:13px;font-weight:700}
-.flag.r{color:var(--red)}.flag.a{color:var(--amb)}
-.addons{display:grid;gap:8px;margin-top:8px}
-.tog{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.calm{font-size:13.5px;color:var(--deep);background:#FFE9EE;border-radius:14px;padding:10px 12px;margin-bottom:10px}
+/* addons */
+.addons{display:grid;gap:8px}
+.tog{display:flex;justify-content:space-between;align-items:center;gap:10px;border-radius:18px;padding:12px 14px;background:#fff;box-shadow:0 2px 10px rgba(168,58,89,.05)}
 .tog small{display:block;color:var(--mute);font-size:13px}
-.sw{position:relative;width:48px;height:28px;flex:none}
+.sw{position:relative;width:50px;height:30px;flex:none}
 .sw input{opacity:0;width:0;height:0}
-.sw span{position:absolute;inset:0;background:#d1d5db;border-radius:999px;transition:.2s}
-.sw span:before{content:"";position:absolute;width:22px;height:22px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
-.sw input:checked+span{background:var(--teal)}
+.sw span{position:absolute;inset:0;background:#e5d3d9;border-radius:999px;transition:.2s}
+.sw span:before{content:"";position:absolute;width:24px;height:24px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.sw input:checked+span{background:var(--deep)}
 .sw input:checked+span:before{transform:translateX(20px)}
-.ok-big{font-size:46px;line-height:1}
-.pay{border:2px solid #fbbf24;background:#fffbeb}
-.price{font-size:30px;font-weight:800}
+/* s3 */
+.ok-big{font-size:52px;line-height:1}
+.pay{background:linear-gradient(160deg,#FFF1E8,#fff 55%);border:2px solid #ffd3bd}
+.price{font-size:32px;font-weight:800;color:var(--ink)}
 .price small{font-size:15px;font-weight:600;color:var(--mute)}
-.pay ul{margin:8px 0 4px 18px}
-.pay li{margin:3px 0}
-.upi{display:flex;gap:8px;align-items:center;margin-top:10px;background:#fff;border:1px dashed #d1d5db;border-radius:10px;padding:8px 10px;font-size:14px}
-.upi code{flex:1;font-size:15px;font-weight:700;word-break:break-all}
-.steps{counter-reset:s;list-style:none;margin-top:6px}
-.steps li{counter-increment:s;position:relative;padding-left:30px;margin:10px 0}
-.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:#111827;color:#fff;font-size:13px;font-weight:700;display:grid;place-items:center}
-.link{color:var(--teal);font-weight:600;background:none;border:0;font:inherit;cursor:pointer;text-decoration:underline;padding:0}
-footer{margin-top:26px;font-size:12.5px;color:var(--mute);line-height:1.5}
-footer a{color:var(--mute)}
+.pay ul{list-style:none;margin:8px 0 4px}
+.pay li{margin:6px 0;padding-left:26px;position:relative}
+.pay li:before{content:"💬";position:absolute;left:0}
+.upi{display:flex;gap:8px;align-items:center;margin-top:10px;background:#fff;border:1.5px dashed #e7cfc4;border-radius:14px;padding:8px 10px;font-size:14px}
+.upi code{flex:1;font-size:15px;font-weight:700;word-break:break-all;font-family:inherit}
+.steps{counter-reset:s;list-style:none;margin-top:8px}
+.steps li{counter-increment:s;position:relative;padding-left:32px;margin:12px 0}
+.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;background:var(--deep);color:#fff;font-size:13px;font-weight:700;display:grid;place-items:center}
+.link{color:var(--deep);font-weight:650;background:none;border:0;font:inherit;cursor:pointer;text-decoration:underline;padding:0}
+.trust{display:flex;gap:10px;align-items:flex-start;background:#fff;border-radius:18px;padding:12px 14px;margin-top:22px;font-size:12.5px;color:var(--mute);line-height:1.5}
+.trust a{color:var(--mute)}
 .hide{display:none!important}
-.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#111827;color:#fff;padding:12px 16px;border-radius:12px;font-size:14px;z-index:9;max-width:90%;text-align:center;opacity:0;transition:.25s;pointer-events:none}
-.toast.show{opacity:1}
-.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.pill{font-size:13px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:var(--mute)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(10px);background:#23202B;color:#fff;padding:12px 18px;border-radius:999px;font-size:14.5px;z-index:9;max-width:92%;text-align:center;opacity:0;transition:.25s;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.pill{font-size:13px;background:#fff;border-radius:999px;padding:6px 12px;color:var(--mute);font-weight:600}
+.agecard{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.agecard .em{font-size:40px;line-height:1}
+@media (prefers-reduced-motion:no-preference){.pop{animation:pop .45s ease}@keyframes pop{0%{transform:scale(.96);opacity:.4}100%{transform:scale(1);opacity:1}}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <div class="logo">T</div>
-    <div class="brand">TeekaTime<small>Baby vaccine dates &amp; reminders</small></div>
+    <div class="logo">💉</div>
+    <div class="brand">TeekaTime<small>Your baby's vaccine buddy</small></div>
   </header>
 
   <!-- SCREEN 1 -->
   <section id="s1">
-    <h1>Never miss your baby's teeka.</h1>
-    <p class="lead">Enter your baby's birth date. See every vaccine date – government and private – and get a reminder on your phone. <b>Free. No app, no login.</b></p>
+    <div class="card hero">
+      <h1>Never miss your baby's <em>teeka</em> 💕</h1>
+      <p class="lead" style="margin:0">Add your baby's birthday and we'll build their vaccine calendar – government and private – with reminders on your phone. <b>Free. No app, no login.</b></p>
+    </div>
     <div class="card">
       <label class="f" for="name">Baby's name <span>(optional)</span></label>
       <input id="name" type="text" placeholder="e.g. Pihu" maxlength="30" autocomplete="off">
-      <label class="f" for="dob">Date of birth</label>
+      <label class="f" for="dob">Date of birth 🎂</label>
       <input id="dob" type="date">
       <div class="err" id="dobErr">Please choose a birth date within the last 3 years.</div>
       <label class="f">Where do you get vaccines done?</label>
       <div class="choices" id="plans">
-        <button class="choice" data-plan="govt" type="button"><span class="dot"></span><span><b>Government centre</b><small>Free vaccines – National Immunization Schedule</small></span></button>
-        <button class="choice" data-plan="private" type="button"><span class="dot"></span><span><b>Private doctor</b><small>IAP schedule followed by paediatricians</small></span></button>
-        <button class="choice on" data-plan="both" type="button"><span class="dot"></span><span><b>Both</b><small>Free govt vaccines + a few private ones (flu, typhoid…)</small></span></button>
+        <button class="choice" data-plan="govt" type="button"><span class="em">🏥</span><span><b>Government centre</b><small>Free vaccines (National Immunization Schedule)</small></span><span class="dot"></span></button>
+        <button class="choice" data-plan="private" type="button"><span class="em">🩺</span><span><b>Private doctor</b><small>IAP schedule that paediatricians follow</small></span><span class="dot"></span></button>
+        <button class="choice on" data-plan="both" type="button"><span class="em">🤝</span><span><b>Both</b><small>Free govt vaccines + a few private ones like flu & typhoid</small></span><span class="dot"></span></button>
       </div>
-      <button class="btn" id="go" type="button">Show my vaccine dates →</button>
+      <button class="btn" id="go" type="button">Show my baby's teeka dates →</button>
       <p class="note">🔒 Your baby's details stay on your phone.</p>
     </div>
   </section>
@@ -132,17 +167,17 @@ footer a{color:var(--mute)}
   <!-- SCREEN 2 -->
   <section id="s2" class="hide">
     <div class="top"><button class="link" id="back" type="button">← Change details</button><span class="pill" id="planPill"></span></div>
-    <h2 id="ageLine"></h2>
-    <div class="card next" id="nextCard"></div>
+    <div class="agecard"><div class="em" id="stageEm">🐣</div><div><h2 id="ageLine"></h2><div class="note" style="margin:0" id="progLine"></div><div class="bar" style="width:200px"><i id="progBar" style="width:0"></i></div></div></div>
+    <div class="card next pop" id="nextCard"></div>
     <div id="addonBox" class="hide">
       <h3>Private vaccines you want</h3>
-      <p class="note" style="margin-top:0">Not in the free government list. Switch off any you don't plan to take.</p>
+      <p class="note" style="margin:-4px 0 10px">Not in the free government list. Switch off any you don't plan to take.</p>
       <div class="addons" id="addons"></div>
     </div>
     <div id="lists"></div>
     <div class="card" style="margin-top:16px">
-      <b>Share with family</b>
-      <p class="note" style="margin-top:4px">Send the full plan to your partner or grandparents on WhatsApp.</p>
+      <b>👨‍👩‍👧 Share with family</b>
+      <p class="note" style="margin-top:4px">Send the plan to your partner or grandparents on WhatsApp.</p>
       <a class="btn wa sm" id="share1" target="_blank" rel="noopener">Share plan on WhatsApp</a>
     </div>
   </section>
@@ -150,14 +185,14 @@ footer a{color:var(--mute)}
   <!-- SCREEN 3 -->
   <section id="s3" class="hide">
     <div class="top"><button class="link" id="back2" type="button">← Back to schedule</button></div>
-    <div class="card" style="text-align:center">
-      <div class="ok-big">✅</div>
-      <h2 style="margin-top:8px">Reminder added</h2>
+    <div class="card hero pop" style="text-align:center">
+      <div class="ok-big">🎉</div>
+      <h2 style="margin-top:8px">Reminder added!</h2>
       <p class="note" id="s3line">Your phone will remind you before the next teeka.</p>
     </div>
     <h3>Add the other visits</h3>
     <div class="card">
-      <button class="btn sec sm" id="icsAll" type="button">📅 Add all visits at once (iPhone)</button>
+      <button class="btn out sm" id="icsAll" type="button">📅 Add all visits at once (iPhone)</button>
       <p class="note">Android: tap "Add" on each visit below.</p>
       <div id="restList"></div>
     </div>
@@ -165,11 +200,11 @@ footer a{color:var(--mute)}
 
     <h3>Want a real person to remind you?</h3>
     <div class="card pay">
-      <div class="price">₹49 <small>for 1 year</small></div>
+      <div class="price">₹49 <small>for 1 full year</small></div>
       <ul>
-        <li>WhatsApp reminder <b>3 days before</b> and on the <b>morning</b> of every vaccine</li>
+        <li>WhatsApp reminder <b>3 days before</b> and on the <b>morning</b> of every teeka</li>
         <li>Vaccine names, so you know what to ask the doctor</li>
-        <li>Full refund on request – no questions</li>
+        <li>Full refund on request – no questions asked</li>
       </ul>
       <ol class="steps">
         <li><b>Pay ₹49</b> by UPI (GPay, PhonePe, Paytm, CRED)
@@ -181,13 +216,11 @@ footer a{color:var(--mute)}
           <a class="btn wa sm" id="confirmBtn" target="_blank" rel="noopener">I've paid – send confirmation</a>
         </li>
       </ol>
-      <p class="note">You'll get a welcome message within a few hours.</p>
+      <p class="note">You'll get a welcome message within a few hours. 💌</p>
     </div>
   </section>
 
-  <footer>
-    Based on India's National Immunization Schedule (MoHFW) and the <a href="https://www.indianpediatrics.net/feb2024/113.pdf" target="_blank" rel="noopener">IAP 2023 schedule</a>. This is a reminder tool, not medical advice. <b>Always confirm with your paediatrician.</b> Dose counts can vary with the vaccine brand your doctor uses.
-  </footer>
+  <div class="trust"><span style="font-size:20px">📋</span><div>Based on India's National Immunization Schedule (MoHFW) and the <a href="https://www.indianpediatrics.net/feb2024/113.pdf" target="_blank" rel="noopener">IAP-ACVIP schedule</a> · Last checked Nov 2026 · Your baby's data stays on this phone.<br><b>A reminder tool, not medical advice. Your doctor may adjust dates – their advice comes first.</b> Dose counts can vary with the vaccine brand.</div></div>
 </div>
 <div class="toast" id="toast"></div>
 
@@ -204,7 +237,7 @@ const PRICE = 49;
 const WHY = {
   "BCG":"Tuberculosis","bOPV":"Polio (oral drops)","OPV":"Polio (oral drops)","Hep B":"Hepatitis B (liver)",
   "Pentavalent":"Diphtheria, tetanus, whooping cough, Hep B, Hib","fIPV":"Polio (injection)","IPV":"Polio (injection)",
-  "Rota":"Diarrhoea from rotavirus","PCV":"Pneumonia & meningitis","MR":"Measles & rubella","MMR":"Measles, mumps & rubella",
+  "Rota":"Diarrhoea from rotavirus · oral drops, no needle 💧","PCV":"Pneumonia & meningitis","MR":"Measles & rubella","MMR":"Measles, mumps & rubella",
   "JE":"Japanese encephalitis","Vitamin A":"Supplement for eyes & immunity (not a vaccine)","DTwP/DTaP":"Diphtheria, tetanus, whooping cough",
   "Hib":"Hib meningitis & pneumonia","Flu":"Influenza (flu)","Typhoid":"Typhoid fever","Hep A":"Hepatitis A (liver)",
   "Chickenpox":"Chickenpox (varicella)","DPT":"Diphtheria, tetanus, whooping cough"
@@ -253,12 +286,12 @@ const VISITS = [
   iap:[V("Flu (yearly)","Flu","Once a year, before monsoon, till age 5")], addon:{flu:[V("Flu (yearly)","Flu","Once a year, before monsoon")]}}
 ];
 const ADDONS = [
- {k:"flu", name:"Flu", why:"6 & 7 months, then once a year"},
- {k:"typhoid", name:"Typhoid", why:"One dose at 6–9 months"},
- {k:"hepa", name:"Hepatitis A", why:"12 months (+18 months for some brands)"},
- {k:"varicella", name:"Chickenpox", why:"15 months and 18 months"}
+ {k:"flu", name:"Flu", em:"🤧", why:"6 & 7 months, then once a year"},
+ {k:"typhoid", name:"Typhoid", em:"🍲", why:"One dose at 6–9 months"},
+ {k:"hepa", name:"Hepatitis A", em:"🫶", why:"12 months (+18 months for some brands)"},
+ {k:"varicella", name:"Chickenpox", em:"🌼", why:"15 months and 18 months"}
 ];
-const PLAN_NAME = {govt:"Government", private:"Private (IAP)", both:"Govt + private"};
+const PLAN_NAME = {govt:"🏥 Government", private:"🩺 Private (IAP)", both:"🤝 Govt + private"};
 
 /* ---------- STATE ---------- */
 const $ = id => document.getElementById(id);
@@ -304,6 +337,7 @@ function ageText(dob){
   const y = Math.floor(months/12), r = months % 12;
   return y + " year" + (y>1?"s":"") + (r ? " " + r + " month" + (r>1?"s":"") : "") + " old";
 }
+function stageEmoji(dob){ const d = diffDays(today(), dob); return d < 42 ? "🌱" : d < 180 ? "🐣" : d < 365 ? "🧸" : d < 730 ? "🎂" : "🚀"; }
 
 /* ---------- SCHEDULE ---------- */
 function vaccinesFor(v){
@@ -352,8 +386,8 @@ function shareUrl(){
 }
 function shareText(){
   const list = schedule().filter(v => v.status !== "done" && v.status !== "overdue").slice(0, 6);
-  let t = "💉 " + childName() + "'s vaccine dates (" + PLAN_NAME[S.plan] + ")\n\n";
-  list.forEach(v => { t += "• " + fmtShort(v.from) + (v.to ? "–" + fmtShort(v.to) : "") + " (" + v.label + "): " + vacText(v) + "\n"; });
+  let t = "💉 " + childName() + "'s vaccine dates (" + PLAN_NAME[S.plan].replace(/^\S+ /, "") + ")\n\n";
+  list.forEach(v => { t += "• " + dateHtml(v) + " (" + v.label + "): " + vacText(v) + "\n"; });
   t += "\nFull schedule + reminders: " + shareUrl() + "\n(Made with TeekaTime – free, no app)";
   return t;
 }
@@ -393,67 +427,99 @@ function log(action){
 function toast(msg){ const t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 2600); }
 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 
-function tagHtml(tag){ return tag === "g" ? '<span class="tag tg">Free at govt centre</span>' : '<span class="tag tp">Private (IAP)</span>'; }
+function tagHtml(tag){ return tag === "g" ? '<span class="tag tg">Free · Govt</span>' : '<span class="tag tp">Private · IAP</span>'; }
 function vacListHtml(v){
   return '<ul class="vlist">' + v.vac.map(x =>
     '<li><span class="vname">' + x.name + '</span>' + tagHtml(x.tag) +
     '<span class="vwhy">' + (WHY[x.base] || "") + (x.extra ? " · " + x.extra : "") + '</span></li>').join("") + '</ul>';
 }
 function dateHtml(v){ return v.to ? fmt(v.from) + " – " + fmt(v.to) : fmt(v.from); }
+function statusChip(v){
+  const d = diffDays(v.from, today());
+  if(v.status === "done") return '<span class="chip-st st-done">✓ Given</span>';
+  if(v.status === "overdue") return '<span class="chip-st st-over">A little late</span>';
+  if(v.status === "soon") return '<span class="chip-st st-soon">' + (d > 0 ? "Due in " + d + (d === 1 ? " day" : " days") : "Due now") + '</span>';
+  return '<span class="chip-st st-up">In ' + (d < 60 ? d + " days" : Math.round(d/30) + " months") + '</span>';
+}
+function ringHtml(v, prev){
+  const d = diffDays(v.from, today());
+  const gap = prev ? Math.max(14, diffDays(v.from, prev.from)) : 42;
+  const p = d <= 0 ? 1 : Math.max(0.04, Math.min(1, 1 - d / gap));
+  const big = d <= 0 ? "Now" : d > 99 ? Math.round(d/30) : d;
+  const small = d <= 0 ? "due" : d > 99 ? "months" : (d === 1 ? "day" : "days");
+  return '<div class="ring" role="img" aria-label="' + (d <= 0 ? "Due now" : d + " days to go") + '"><svg viewBox="0 0 84 84"><circle cx="42" cy="42" r="35" fill="none" stroke="#FCE4EA" stroke-width="9"/>' +
+    '<circle cx="42" cy="42" r="35" fill="none" stroke="#FF5A7D" stroke-width="9" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="' + (1 - p).toFixed(3) + '"/></svg>' +
+    '<div class="c"><div><b>' + big + '</b><span>' + small + '</span></div></div></div>';
+}
+
+function markDone(k, msg){
+  done[k] = true; save(); renderS2();
+  const v = VISITS.find(x => x.k === k);
+  toast(msg || ("All done for " + (v ? v.label : "this visit") + " – well done, " + childName() + "! 🌟"));
+  log("mark_given");
+}
 
 function renderS2(){
   const sch = schedule();
   const dob = parseDate(S.dob);
-  $("ageLine").textContent = childName() + " is " + ageText(dob) + ".";
+  $("ageLine").textContent = childName() + " is " + ageText(dob) + " " ;
+  $("stageEm").textContent = stageEmoji(dob);
   $("planPill").textContent = PLAN_NAME[S.plan];
+  const nDone = sch.filter(v => v.status === "done").length;
+  $("progLine").textContent = "🛡️ " + nDone + " of " + sch.length + " teeka visits marked as given";
+  $("progBar").style.width = Math.round(100 * nDone / sch.length) + "%";
   // next card
-  const nxt = sch.find(v => v.status === "soon" || v.status === "up");
+  const idx = sch.findIndex(v => v.status === "soon" || v.status === "up");
+  const nxt = idx >= 0 ? sch[idx] : null;
   if(nxt){
+    const prev = idx > 0 ? sch[idx-1] : null;
     const days = diffDays(nxt.from, today());
-    const whenTxt = days <= 0 ? (nxt.to ? "Due now · till " + fmt(nxt.to) : "Due now") : (days === 1 ? "Due tomorrow · " + fmt(nxt.from) : "Due in " + days + " days · " + dateHtml(nxt));
-    $("nextCard").innerHTML = '<div class="when">NEXT TEEKA · ' + whenTxt + '</div><div class="what">' + nxt.label + ' vaccines</div><ul>' +
-      nxt.vac.map(x => '<li>✓ ' + x.name + ' – ' + (WHY[x.base]||"") + '</li>').join("") +
-      '</ul><a class="btn" id="addNext" href="' + gcalLink(nxt) + '" target="_blank" rel="noopener">📅 Add to my calendar</a>' +
-      (isIOS ? '<button class="btn" style="margin-top:8px;background:rgba(255,255,255,.15);color:#fff" id="addNextIcs" type="button">iPhone? Add to Apple Calendar</button>' : '') +
-      '<p class="note" style="color:#ccfbf1">You get a phone reminder. No sign-up needed.</p>';
+    const whenTxt = days <= 0 ? (nxt.to ? "Due now · window open till " + fmt(nxt.to) : "Due now · " + fmt(nxt.from)) : (days === 1 ? "Tomorrow · " + fmt(nxt.from) : dateHtml(nxt));
+    const tip = days <= 7 ? "🩺 Almost time! Book your paediatrician visit this week." : "📆 Add it to your calendar now so it doesn't sneak up on you.";
+    $("nextCard").innerHTML =
+      '<div class="nhead">' + ringHtml(nxt, prev) + '<div><div class="kicker">Next teeka</div><div class="nwhat">' + nxt.label + ' vaccines</div><div class="nwhen">' + whenTxt + '</div>' + statusChip(nxt) + '</div></div>' +
+      vacListHtml(nxt) +
+      '<div class="row2"><a class="btn" id="addNext" href="' + gcalLink(nxt) + '" target="_blank" rel="noopener">📅 Add to calendar</a><button class="btn out" id="givenNext" type="button">✓ Already given</button></div>' +
+      (isIOS ? '<button class="link" style="margin-top:10px;font-size:14px" id="addNextIcs" type="button">iPhone? Add to Apple Calendar instead</button>' : '') +
+      '<div class="tip">' + tip + ' Mild fever or fussiness for a day after vaccines is common – call your doctor if it lasts longer or you\'re worried.</div>';
     $("addNext").onclick = () => { log("gcal_add"); setTimeout(() => showS3(nxt), 400); };
+    $("givenNext").onclick = () => markDone(nxt.k);
     if(isIOS) $("addNextIcs").onclick = () => { openIcs([nxt]); log("ics_add"); setTimeout(() => showS3(nxt), 600); };
-    $("nextCard").classList.remove("hide");
   } else {
-    $("nextCard").innerHTML = '<div class="what">All caught up 🎉</div><p>No more routine vaccines in this plan up to age 3. Keep confirming with your doctor.</p>';
+    $("nextCard").innerHTML = '<div class="nwhat">All caught up 🎉</div><p class="note">No more routine vaccines in this plan up to age 3. Keep checking with your doctor.</p>';
   }
   // addons
   $("addonBox").classList.toggle("hide", S.plan !== "both");
   if(S.plan === "both"){
     $("addons").innerHTML = ADDONS.map(a =>
-      '<div class="tog"><div><b>' + a.name + '</b> <span class="tag tp">Private</span><small>' + WHY[a.name === "Hepatitis A" ? "Hep A" : a.name] + ' · ' + a.why + '</small></div>' +
+      '<div class="tog"><div><b>' + a.em + ' ' + a.name + '</b> <span class="tag tp">Private · IAP</span><small>' + WHY[a.name === "Hepatitis A" ? "Hep A" : a.name] + ' · ' + a.why + '</small></div>' +
       '<label class="sw"><input type="checkbox" data-a="' + a.k + '"' + (S.addons[a.k] ? " checked" : "") + '><span></span></label></div>').join("");
     $("addons").querySelectorAll("input").forEach(i => i.onchange = () => { S.addons[i.dataset.a] = i.checked; save(); renderS2(); });
   }
-  // lists
-  const groups = [
-    ["overdue", "Past due date", "r"], ["soon", "Due now or this week", "a"], ["up", "Upcoming", ""], ["done", "Given", ""]
-  ];
+  // lists (next visit already shown on top)
+  const groups = [["overdue","Past due date"],["soon","Due now or this week"],["up","Coming up"],["done","Given ✓"]];
   let html = "";
   groups.forEach(([st, title]) => {
-    const items = sch.filter(v => v.status === st);
+    const items = sch.filter(v => v.status === st && (!nxt || v.k !== nxt.k));
     if(!items.length) return;
     html += "<h3>" + title + " (" + items.length + ")</h3>";
-    if(st === "overdue") html += '<p class="note" style="margin:-4px 0 10px">Already given? Mark them. If any were missed, ask your doctor about catch-up doses. <button class="link" id="markAll" type="button">Mark all as given</button></p>';
+    if(st === "overdue") html += '<div class="calm">💗 Already given? Mark them below. If one was missed, that\'s okay – ask your doctor about a catch-up plan. <button class="link" id="markAll" type="button">Mark all as given</button></div>';
+    html += '<div class="tl">';
     items.forEach(v => {
-      html += '<div class="visit ' + st + '"><div class="vhead"><span class="vage">' + v.label + '</span><span class="vdate">' + dateHtml(v) + '</span></div>' + vacListHtml(v) +
+      html += '<div class="visit ' + st + '"><div class="vhead"><span class="vage">' + v.label + '</span>' + statusChip(v) + '</div><div class="vdate">' + dateHtml(v) + '</div>' + vacListHtml(v) +
         '<div class="vact">' +
         (st === "done" ? '<button class="chip" data-undo="' + v.k + '" type="button">Undo</button>'
-          : '<button class="chip ' + (st === "overdue" ? "ok" : "") + '" data-done="' + v.k + '" type="button">✓ Mark given</button>' +
+          : '<button class="chip g" data-done="' + v.k + '" type="button">✓ Mark given</button>' +
             (st !== "overdue" ? '<a class="chip t" data-cal="' + v.k + '" href="' + gcalLink(v) + '" target="_blank" rel="noopener">📅 Add</a>' : '')) +
         '</div></div>';
     });
+    html += '</div>';
   });
   $("lists").innerHTML = html;
-  $("lists").querySelectorAll("[data-done]").forEach(b => b.onclick = () => { done[b.dataset.done] = true; save(); renderS2(); toast("Marked as given"); });
+  $("lists").querySelectorAll("[data-done]").forEach(b => b.onclick = () => markDone(b.dataset.done));
   $("lists").querySelectorAll("[data-undo]").forEach(b => b.onclick = () => { delete done[b.dataset.undo]; save(); renderS2(); });
   $("lists").querySelectorAll("[data-cal]").forEach(b => b.onclick = () => { log("gcal_add"); const v = sch.find(x => x.k === b.dataset.cal); setTimeout(() => showS3(v), 400); });
-  const ma = $("markAll"); if(ma) ma.onclick = () => { sch.filter(v => v.status === "overdue").forEach(v => done[v.k] = true); save(); renderS2(); toast("Past visits marked as given"); };
+  const ma = $("markAll"); if(ma) ma.onclick = () => { sch.filter(v => v.status === "overdue").forEach(v => done[v.k] = true); save(); renderS2(); toast("Past visits marked as given 🌟"); };
   const wa = "https://wa.me/?text=" + encodeURIComponent(shareText());
   $("share1").href = wa; $("share2").href = wa;
 }
@@ -468,15 +534,15 @@ function openIcs(list){
 
 function showS3(added){
   const rest = schedule().filter(v => (v.status === "soon" || v.status === "up") && (!added || v.k !== added.k));
-  $("s3line").textContent = added ? "We've opened your calendar for the " + added.label + " vaccines. Tap Save there if you haven't." : "Your phone will remind you before the next teeka.";
+  $("s3line").textContent = added ? "We opened your calendar for " + childName() + "'s " + added.label + " vaccines. Tap Save there if you haven't." : "Your phone will remind you before the next teeka.";
   $("restList").innerHTML = rest.length ? rest.map(v =>
-    '<div class="vhead" style="padding:10px 0;border-top:1px solid #eee"><span><b>' + v.label + '</b><span class="vwhy">' + dateHtml(v) + '</span></span><a class="chip t" data-cal3="' + v.k + '" href="' + gcalLink(v) + '" target="_blank" rel="noopener">📅 Add</a></div>').join("")
+    '<div class="vhead" style="padding:10px 0;border-top:1px solid #f3e3e8"><span><b>' + v.label + '</b><span class="vdate" style="display:block">' + dateHtml(v) + '</span></span><a class="chip t" data-cal3="' + v.k + '" href="' + gcalLink(v) + '" target="_blank" rel="noopener">📅 Add</a></div>').join("")
     : '<p class="note">No other upcoming visits.</p>';
   $("restList").querySelectorAll("[data-cal3]").forEach(b => b.onclick = () => { log("gcal_add"); b.textContent = "✓ Added"; b.classList.add("ok"); });
   $("icsAll").onclick = () => { openIcs(schedule().filter(v => v.status === "soon" || v.status === "up")); log("ics_add"); toast("Opening your calendar…"); };
   const n = childName(), nxt = added || rest[0];
   const conf = "Hi! I've paid ₹" + PRICE + " for TeekaTime WhatsApp reminders.\n\nBaby's name: " + n + "\nDate of birth: " + fmt(parseDate(S.dob)) +
-    "\nPlan: " + PLAN_NAME[S.plan] + (nxt ? "\nNext teeka: " + nxt.label + " (" + dateHtml(nxt) + ")" : "") + "\nUPI ref no.: ";
+    "\nPlan: " + PLAN_NAME[S.plan].replace(/^\S+ /, "") + (nxt ? "\nNext teeka: " + nxt.label + " (" + dateHtml(nxt) + ")" : "") + "\nUPI ref no.: ";
   $("confirmBtn").href = "https://wa.me/" + OWNER_WA + "?text=" + encodeURIComponent(conf);
   show("s3");
 }
@@ -495,7 +561,7 @@ function save(){ store.set("tt_state", S); store.set("tt_done_" + S.dob, done); 
   // shared link overrides
   if(params.get("dob")){
     S.dob = params.get("dob"); S.plan = ["govt","private","both"].includes(params.get("plan")) ? params.get("plan") : "both";
-    S.name = (params.get("n") || "").slice(0,30);
+    S.name = (params.get("n") || "").replace(/[<>"&]/g, "").slice(0,30);
     if(params.get("a") !== null){ const a = params.get("a").split("."); ADDONS.forEach(x => S.addons[x.k] = a.includes(x.k)); }
   }
   $("name").value = S.name; $("dob").value = S.dob;
@@ -507,7 +573,7 @@ function save(){ store.set("tt_state", S); store.set("tt_done_" + S.dob, done); 
     const v = $("dob").value;
     if(!v || parseDate(v) > t || parseDate(v) < min){ $("dobErr").style.display = "block"; $("dob").focus(); return; }
     $("dobErr").style.display = "none";
-    S.name = $("name").value.trim().replace(/[<>"]/g, "").slice(0,30); S.dob = v;
+    S.name = $("name").value.trim().replace(/[<>"&]/g, "").slice(0,30); S.dob = v;
     done = store.get("tt_done_" + S.dob, {});
     save(); renderS2(); show("s2"); log("schedule_view");
   };
@@ -519,7 +585,7 @@ function save(){ store.set("tt_state", S); store.set("tt_done_" + S.dob, done); 
   $("copyUpi").onclick = () => { (navigator.clipboard ? navigator.clipboard.writeText(UPI_ID) : Promise.reject()).then(() => toast("UPI ID copied"), () => toast("UPI ID: " + UPI_ID)); };
   $("confirmBtn").onclick = () => log("paid_confirm");
   // opened from a shared link -> go straight to schedule
-  if(params.get("dob") && S.dob){ done = store.get("tt_done_" + S.dob, {}); renderS2(); show("s2"); log("schedule_view_shared"); }
+  if(params.get("dob") && S.dob && !isNaN(parseDate(S.dob))){ done = store.get("tt_done_" + S.dob, {}); renderS2(); show("s2"); log("schedule_view_shared"); }
 })();
 </script>
 </body>
