@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA0NCA0NCc+PHJlY3Qgd2lkdGg9JzQ0JyBoZWlnaHQ9JzQ0JyByeD0nMTMnIGZpbGw9JyMzYTE3MjYnLz48cmVjdCB4PScxMCcgeT0nMTInIHdpZHRoPScyNCcgaGVpZ2h0PScyMicgcng9JzUnIGZpbGw9J25vbmUnIHN0cm9rZT0nI0ZGRjdGNScgc3Ryb2tlLXdpZHRoPScyLjYnLz48cGF0aCBkPSdNMTYgOXY2TTI4IDl2Nicgc3Ryb2tlPScjRkZGN0Y1JyBzdHJva2Utd2lkdGg9JzIuNicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJy8+PHBhdGggZD0nTTIyIDI5LjVzLTQuNC0yLjctNC40LTUuNmMwLTEuNCAxLjEtMi40IDIuNC0yLjQuOSAwIDEuNi41IDIgMS4xLjQtLjYgMS4xLTEuMSAyLTEuMSAxLjMgMCAyLjQgMSAyLjQgMi40IDAgMi45LTQuNCA1LjYtNC40IDUuNnonIGZpbGw9JyNGRjZGOEUnLz48L3N2Zz4=">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>TeekaTime · Live traction</title>
+<meta name="theme-color" content="#3a1726">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap" rel="stylesheet">
+<style>
+:root{--blush:#FFF5F7;--rose:#FF5A7D;--deep:#A83A59;--plum:#3a1726;--teal:#0E7270;--tealbg:#E3F4F2;--ink:#23202B;--mute:#5B6275;--line:#F1E4E8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--blush);color:var(--ink);line-height:1.45}
+@media (min-width:700px){body{background:radial-gradient(circle at 12% 18%,#FFE1E8 0,transparent 32%),radial-gradient(circle at 88% 72%,#EEF0FF 0,transparent 38%),var(--blush);background-attachment:fixed}}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.logo{width:42px;height:42px;border-radius:12px;box-shadow:0 6px 16px rgba(58,23,38,.25);flex:none}
+.brand{font-family:"Nunito",system-ui,sans-serif;font-weight:900;font-size:22px;color:var(--plum);line-height:1.1}
+.brand i{font-style:normal;color:#C23E66}
+.brand small{display:block;font-family:system-ui,sans-serif;font-weight:500;font-size:12px;color:var(--mute);margin-top:2px}
+.live{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--teal);background:var(--tealbg);padding:6px 10px;border-radius:999px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--teal)}
+@media (prefers-reduced-motion:no-preference){.dot{animation:p 1.6s ease-in-out infinite}@keyframes p{50%{opacity:.25}}}
+.card{background:#fff;border-radius:22px;padding:20px;margin-bottom:14px;box-shadow:0 2px 14px rgba(168,58,89,.07)}
+.hero{background:linear-gradient(135deg,#3a1726,#6b2440);color:#fff}
+.hero .k{font-size:13px;letter-spacing:.8px;text-transform:uppercase;opacity:.8;font-weight:700}
+.big{font-family:"Nunito",sans-serif;font-weight:900;font-size:64px;line-height:1;margin:6px 0 4px}
+.hero p{opacity:.9;font-size:15px}
+.hero .sub{margin-top:10px;font-size:13px;opacity:.75}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:14px}
+@media (min-width:640px){.grid{grid-template-columns:repeat(4,1fr)}}
+.stat{background:#fff;border-radius:18px;padding:14px;box-shadow:0 2px 14px rgba(168,58,89,.07)}
+.stat b{display:block;font-family:"Nunito",sans-serif;font-weight:900;font-size:30px;color:var(--plum);line-height:1.1}
+.stat span{font-size:12.5px;color:var(--mute)}
+h2{font-family:"Nunito",sans-serif;font-weight:900;font-size:18px;color:var(--plum);margin-bottom:4px}
+.note{font-size:13px;color:var(--mute);margin-bottom:14px}
+.row{display:grid;grid-template-columns:150px 1fr 64px;align-items:center;gap:10px;margin:9px 0;font-size:14px}
+@media (max-width:480px){.row{grid-template-columns:110px 1fr 54px;font-size:13px}}
+.bar{height:22px;background:#FCE4EA;border-radius:8px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:8px;background:var(--rose);width:0;transition:width .8s ease}
+.row.core .bar i{background:var(--deep)}
+.row.core{font-weight:700}
+.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.num small{display:block;font-weight:500;color:var(--mute);font-size:11px}
+svg text{font-family:system-ui,sans-serif}
+.foot{text-align:center;font-size:12px;color:var(--mute);margin-top:18px}
+.foot a{color:var(--deep);font-weight:700}
+.err{color:#9A3B12}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <svg class="logo" viewBox="0 0 44 44" role="img" aria-label="TeekaTime logo"><rect width="44" height="44" rx="13" fill="#3a1726"/><rect x="10" y="12" width="24" height="22" rx="5" fill="none" stroke="#FFF7F5" stroke-width="2.6"/><path d="M16 9v6M28 9v6" stroke="#FFF7F5" stroke-width="2.6" stroke-linecap="round"/><path d="M22 29.5s-4.4-2.7-4.4-5.6c0-1.4 1.1-2.4 2.4-2.4.9 0 1.6.5 2 1.1.4-.6 1.1-1.1 2-1.1 1.3 0 2.4 1 2.4 2.4 0 2.9-4.4 5.6-4.4 5.6z" fill="#FF6F8E"/></svg>
+    <div class="brand">Teeka<i>Time</i><small>Live traction · Zero to 1 AM buildathon</small></div>
+    <span class="live"><span class="dot"></span>Live</span>
+  </header>
+
+  <div class="card hero">
+    <div class="k">Real parents who added their baby's next teeka to their calendar</div>
+    <div class="big" id="hero">–</div>
+    <p id="heroLine">Loading live numbers…</p>
+    <div class="sub">Built Fri 13 Nov, 9 PM–1 AM. Every number below is pulled live from our database.</div>
+  </div>
+
+  <div class="grid">
+    <div class="stat"><b id="sAct">–</b><span>of parents who checked a schedule set a reminder</span></div>
+    <div class="stat"><b id="sTaps">–</b><span>past teekas marked as given</span></div>
+    <div class="stat"><b id="sRef">–</b><span>parents shared it with another parent</span></div>
+    <div class="stat"><b id="sDays">–</b><span>days live, ₹0 spent on ads</span></div>
+  </div>
+
+  <div class="card">
+    <h2>The parent journey</h2>
+    <div class="note">Each bar is unique phones, from launch to now.</div>
+    <div id="funnel"></div>
+  </div>
+
+  <div class="card">
+    <h2>Parents added, day by day</h2>
+    <div class="note">Bars: new parents that day. Line: running total.</div>
+    <div id="chart"></div>
+  </div>
+
+  <div class="foot">
+    <span id="updated">–</span> · refreshes every minute<br>
+    Counted per phone · our own test visits excluded · no personal data shown<br><br>
+    <a href="/">Try TeekaTime →</a>
+  </div>
+</div>
+
+<script>
+const URL_ = "https://dqnhcpzrrxbmnplbffxj.supabase.co/rest/v1/rpc/gtm_stats";
+const KEY = "sb_publishable_6tB7paPNaaUD2IhVeR-oWQ_3spZpJUL";
+const LAUNCH = new Date("2026-11-13T21:00:00+05:30");
+const $ = id => document.getElementById(id);
+
+function fmtDay(s){ const d = new Date(s + "T00:00:00+05:30"); return d.toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short",timeZone:"Asia/Kolkata"}); }
+
+function funnel(s){
+  const rows = [
+    ["Opened TeekaTime", s.opened],
+    ["Checked baby's schedule", s.schedule],
+    ["Added a reminder", s.reminder, true],
+    ["Marked teekas as given", s.given],
+    ["Shared with a parent", s.referral],
+    ["Opened UPI to pay", s.upi],
+    ["Paid", s.paid]
+  ];
+  const max = Math.max(1, s.opened);
+  $("funnel").innerHTML = rows.map(([label, v, core]) => {
+    const pct = s.opened ? Math.round(v / s.opened * 100) : 0;
+    return `<div class="row${core ? " core" : ""}"><div>${label}</div><div class="bar"><i data-w="${v / max * 100}"></i></div><div class="num">${v}<small>${pct}%</small></div></div>`;
+  }).join("");
+  requestAnimationFrame(() => document.querySelectorAll(".bar i").forEach(i => i.style.width = i.dataset.w + "%"));
+}
+
+function chart(daily){
+  if (!daily.length){ $("chart").innerHTML = '<div class="note">No data yet.</div>'; return; }
+  const W = 700, H = 240, pl = 34, pr = 16, pt = 18, pb = 34;
+  let run = 0; const pts = daily.map(d => ({day: d.day, n: d.users, total: (run += d.users)}));
+  const maxY = Math.max(...pts.map(p => p.total)), step = (W - pl - pr) / pts.length;
+  const y = v => pt + (H - pt - pb) * (1 - v / maxY);
+  const bw = Math.min(46, step * 0.5);
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Parents added per day">`;
+  [0, .5, 1].forEach(f => { const v = Math.round(maxY * f), yy = y(v); svg += `<line x1="${pl}" x2="${W - pr}" y1="${yy}" y2="${yy}" stroke="#F1E4E8"/><text x="${pl - 8}" y="${yy + 4}" text-anchor="end" font-size="11" fill="#5B6275">${v}</text>`; });
+  const line = pts.map((p, i) => `${pl + step * (i + .5)},${y(p.total)}`).join(" ");
+  pts.forEach((p, i) => {
+    const cx = pl + step * (i + .5);
+    svg += `<rect x="${cx - bw / 2}" y="${y(p.n)}" width="${bw}" height="${y(0) - y(p.n)}" rx="6" fill="#FFC2D0"/>`;
+    svg += `<text x="${cx}" y="${y(p.n) - 6}" text-anchor="middle" font-size="12" font-weight="700" fill="#A83A59">+${p.n}</text>`;
+    svg += `<text x="${cx}" y="${H - 12}" text-anchor="middle" font-size="11" fill="#5B6275">${fmtDay(p.day)}</text>`;
+  });
+  svg += `<polyline points="${line}" fill="none" stroke="#3a1726" stroke-width="3" stroke-linejoin="round"/>`;
+  pts.forEach((p, i) => { const cx = pl + step * (i + .5); svg += `<circle cx="${cx}" cy="${y(p.total)}" r="5" fill="#3a1726"/>`; });
+  const last = pts[pts.length - 1], lx = pl + step * (pts.length - .5);
+  svg += `<text x="${lx}" y="${y(last.total) - 12}" text-anchor="end" font-size="13" font-weight="800" fill="#3a1726">${last.total} total</text>`;
+  $("chart").innerHTML = svg + "</svg>";
+}
+
+async function load(){
+  try {
+    const r = await fetch(URL_, {method: "POST", headers: {"apikey": KEY, "Content-Type": "application/json"}, body: "{}"});
+    if (!r.ok) throw new Error(r.status);
+    const s = await r.json();
+    $("hero").textContent = s.reminder;
+    $("heroLine").textContent = `${s.reminder} parents now have their baby's next teeka on their phone calendar, out of ${s.schedule} who checked a schedule.`;
+    $("sAct").textContent = (s.schedule ? Math.round(s.reminder / s.schedule * 100) : 0) + "%";
+    $("sTaps").textContent = s.given_taps;
+    $("sRef").textContent = s.referral;
+    $("sDays").textContent = Math.max(1, Math.ceil((Date.now() - LAUNCH) / 864e5));
+    funnel(s); chart(s.daily);
+    $("updated").textContent = "Updated " + new Date(s.updated_at).toLocaleTimeString("en-IN", {hour: "2-digit", minute: "2-digit", timeZone: "Asia/Kolkata"}) + " IST";
+  } catch (e) {
+    $("heroLine").innerHTML = '<span class="err">Couldn\'t load live numbers. Refresh in a moment.</span>';
+  }
+}
+load(); setInterval(load, 60000);
+</script>
+</body>
+</html>
